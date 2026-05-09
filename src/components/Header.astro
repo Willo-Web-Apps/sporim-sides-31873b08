@@ -1,11 +1,53 @@
 ---
 ---
-<header class="sticky top-0 z-50 border-b border-surface-200 bg-surface-50/80 backdrop-blur-lg">
+<header style="
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: oklch(0.09 0.006 145 / 0.85);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid oklch(0.17 0.010 145);
+">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="text-lg font-bold tracking-tight text-surface-900 font-display">Your New Business</a>
-    <div class="flex items-center gap-6">
-      <a href="/blog" class="text-sm font-medium text-surface-800/60 hover:text-surface-900 transition-colors">Blog</a>
-      <a href="#cta" class="text-sm font-semibold bg-brand-500 text-white px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors">Get Started</a>
+
+    <!-- Logo -->
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <div style="
+        width:32px;height:32px;border-radius:8px;
+        background:linear-gradient(135deg,oklch(0.72 0.22 145),oklch(0.60 0.20 145));
+        display:flex;align-items:center;justify-content:center;
+        font-family:'Archivo Black',sans-serif;font-size:16px;font-weight:900;
+        color:oklch(0.09 0.006 145);
+        flex-shrink:0;
+      ">S</div>
+      <span style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);letter-spacing:-0.01em;">SIDES</span>
+    </a>
+
+    <!-- Nav links -->
+    <div style="display:flex;align-items:center;gap:6px;">
+      <a href="#how-it-works" style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:500;color:oklch(0.60 0.010 145);padding:8px 12px;border-radius:6px;text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.96 0.005 145)'" onmouseout="this.style.color='oklch(0.60 0.010 145)'">How it works</a>
+      <a href="#cta" style="font-family:'Barlow',sans-serif;font-size:14px;font-weight:500;color:oklch(0.60 0.010 145);padding:8px 12px;border-radius:6px;text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.96 0.005 145)'" onmouseout="this.style.color='oklch(0.60 0.010 145)'">FAQ</a>
+      <a
+        href="https://t.me/sidesbot"
+        style="
+          font-family:'Barlow',sans-serif;font-size:14px;font-weight:700;
+          background:oklch(0.72 0.22 145);
+          color:oklch(0.09 0.006 145);
+          padding:8px 18px;
+          border-radius:8px;
+          text-decoration:none;
+          margin-left:4px;
+          display:flex;align-items:center;gap:6px;
+          transition:background-color 0.15s,box-shadow 0.15s;
+        "
+        onmouseover="this.style.backgroundColor='oklch(0.80 0.22 145)';this.style.boxShadow='0 0 16px oklch(0.72 0.22 145 / 0.4)'"
+        onmouseout="this.style.backgroundColor='oklch(0.72 0.22 145)';this.style.boxShadow='none'"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.44.7-.9.44l-2.46-1.82-1.18 1.14c-.13.13-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.76 14.16 6.34 13.4c-.54-.17-.56-.54.12-.8l8.92-3.44c.44-.16.82.1.26.64z"/></svg>
+        Open bot
+      </a>
     </div>
+
   </nav>
 </header>

@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://sporim-sides.onrender.com',
+  site: 'https://sides.bywillo.ai',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

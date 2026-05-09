@@ -1,11 +1,62 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer class="border-t border-surface-200 py-10 mt-auto">
+<footer style="
+  background-color: oklch(0.07 0.005 145);
+  border-top: 1px solid oklch(0.15 0.009 145);
+  padding: 3.5rem 0 2rem;
+">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <p class="text-sm font-semibold text-surface-900 font-display">Your New Business</p>
-      <p class="text-sm text-surface-800/50">&copy; {year} Your New Business. All rights reserved.</p>
+
+    <!-- Top row -->
+    <div style="display:flex;flex-direction:column;gap:32px;" class="md:flex-row md:justify-between md:items-start">
+
+      <!-- Brand -->
+      <div style="max-width:280px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,oklch(0.72 0.22 145),oklch(0.60 0.20 145));display:flex;align-items:center;justify-content:center;font-family:'Archivo Black',sans-serif;font-size:16px;color:oklch(0.09 0.006 145);">S</div>
+          <span style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);">SIDES</span>
+        </div>
+        <p style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.45 0.008 145);line-height:1.6;">
+          No house. Just you and them.<br/>
+          P2P sports challenges inside Telegram.
+        </p>
+        <a href="https://t.me/sidesbot" style="display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:700;color:oklch(0.72 0.22 145);text-decoration:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.44.7-.9.44l-2.46-1.82-1.18 1.14c-.13.13-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.76 14.16 6.34 13.4c-.54-.17-.56-.54.12-.8l8.92-3.44c.44-.16.82.1.26.64z"/></svg>
+          @sidesbot
+        </a>
+      </div>
+
+      <!-- Links -->
+      <div style="display:flex;gap:48px;flex-wrap:wrap;">
+        <div>
+          <p style="font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.55 0.010 145);margin-bottom:12px;">Product</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="#how-it-works" style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.50 0.008 145);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.72 0.22 145)'" onmouseout="this.style.color='oklch(0.50 0.008 145)'">How it works</a>
+            <a href="#cta" style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.50 0.008 145);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.72 0.22 145)'" onmouseout="this.style.color='oklch(0.50 0.008 145)'">Supported sports</a>
+            <a href="#cta" style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.50 0.008 145);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.72 0.22 145)'" onmouseout="this.style.color='oklch(0.50 0.008 145)'">The Market</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.55 0.010 145);margin-bottom:12px;">Legal</p>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="#" style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.50 0.008 145);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.72 0.22 145)'" onmouseout="this.style.color='oklch(0.50 0.008 145)'">Terms of Service</a>
+            <a href="#" style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.50 0.008 145);text-decoration:none;transition:color 0.15s;" onmouseover="this.style.color='oklch(0.72 0.22 145)'" onmouseout="this.style.color='oklch(0.50 0.008 145)'">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Divider + bottom row -->
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid oklch(0.13 0.009 145);display:flex;flex-direction:column;gap:8px;" class="md:flex-row md:items-center md:justify-between">
+      <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.35 0.006 145);">
+        &copy; {year} SIDES. Technology escrow platform. Not a gambling operator.
+      </p>
+      <p style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.30 0.005 145);">
+        Users are responsible for compliance with local laws.
+      </p>
+    </div>
+
   </div>
 </footer>

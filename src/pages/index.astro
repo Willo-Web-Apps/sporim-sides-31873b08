@@ -1,221 +1,637 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base title="Your New Business" description="I want to build SPORIM (Russian market, @sporimbot) and SIDES (English market, @sidesbot) — a peer-to-peer sports challenge platform inside Telegram. Think &quot;Venmo for bets between friends&quot; but we are NOT a bookmaker — we are an escrow technology platform.
+<Base
+  title="SIDES — No house. Just you and them."
+  description="SIDES is a peer-to-peer sports challenge platform built inside Telegram. Challenge friends on match outcomes, lock stakes in escrow, win automatically. No bookmaker. No flaking."
+>
 
-THE PROBLEM
-People constantly challenge each other on sports in chats: &quot;I bet Arsenal wins&quot;, &quot;wanna bet $50?&quot;, &quot;if my team loses I pay for dinner&quot;. But these challenges are rarely paid out — someone forgets, someone dodges, nobody tracks it. We turn a conversational habit into a product.
+  <!-- =====================================================================
+       HERO
+       ===================================================================== -->
+  <section class="relative min-h-screen flex items-center overflow-hidden noise-overlay" style="background-color: oklch(0.09 0.006 145);">
 
-THE SOLUTION
-A Telegram bot where:
-1. User picks a sports match (Premier League, NBA, World Cup), picks a side (Home / Draw / Away), and enters an amount in Telegram Stars
-2. Bot generates an invite link (t.me/sporimbot?start=ref_123)
-3. Friend clicks the link, accepts the challenge, both lock equal amount — bot holds funds (escrow)
-4. After the match ends, bot checks the result via sports API and automatically sends the full pot to the winner minus 2% platform fee
+    <!-- Layered gradient background — scoreboard floodlights -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <!-- Green glow — top-left primary light source -->
+      <div class="animate-orb-float" style="
+        position: absolute;
+        top: -15%;
+        left: -10%;
+        width: 70vw;
+        height: 70vw;
+        max-width: 800px;
+        max-height: 800px;
+        background: radial-gradient(ellipse at 30% 30%, oklch(0.72 0.22 145 / 0.22) 0%, transparent 65%);
+        filter: blur(1px);
+      "></div>
+      <!-- Orange ember — bottom-right secondary -->
+      <div style="
+        position: absolute;
+        bottom: -10%;
+        right: -5%;
+        width: 50vw;
+        height: 50vw;
+        max-width: 600px;
+        max-height: 600px;
+        background: radial-gradient(ellipse at 70% 70%, oklch(0.64 0.22 32 / 0.16) 0%, transparent 60%);
+        filter: blur(2px);
+      "></div>
+      <!-- Subtle top-right green edge -->
+      <div style="
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 35vw;
+        height: 40vh;
+        background: radial-gradient(ellipse at 90% 10%, oklch(0.72 0.22 145 / 0.09) 0%, transparent 70%);
+      "></div>
+      <!-- Bottom fade to next section -->
+      <div style="
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 180px;
+        background: linear-gradient(to bottom, transparent, oklch(0.09 0.006 145));
+      "></div>
+    </div>
 
-Two modes:
-- &quot;Challenge a Friend&quot; — private invite link for a specific person
-- &quot;The Market&quot; — open list of unaccepted challenges, anyone can accept
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-WHY NOW
-- May 30, 2025: Champions League Final — perfect viral launch event
-- June 2025: NBA Finals
-- Summer 2026: FIFA World Cup — millions of casual fans will want to challenge friends
+        <!-- Left: Copy -->
+        <div>
+          <!-- Badge -->
+          <div class="animate-slide-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style="background-color: oklch(0.72 0.22 145 / 0.12); color: oklch(0.72 0.22 145); border: 1px solid oklch(0.72 0.22 145 / 0.25);">
+            <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.72 0.22 145);display:inline-block;"></span>
+            Live now on Telegram
+          </div>
 
-THE BRAND
-- RU/CIS: SPORIM (@sporimbot). &quot;Sporim na sotku?&quot; is already a meme in Russian chats — the name IS the call to action
-- Global: SIDES (@sidesbot). &quot;Pick a side.&quot; No taboo words (bet/wager/gamble). Clean for regulators and ad networks
+          <!-- Headline -->
+          <h1 class="animate-slide-up delay-100 font-display leading-[0.95] tracking-tight" style="font-size: clamp(2.8rem, 7vw, 5.5rem); color: oklch(0.96 0.005 145);">
+            Your friend<br />
+            talks big.<br />
+            <span class="text-gradient-green">Make them<br />prove it.</span>
+          </h1>
 
-POSITIONING
-We are NOT gambling. We are a social escrow platform — like PayPal for friend challenges. We don&#39;t take bets, don&#39;t set odds, don&#39;t take risk. We hold funds between two private individuals and automate the transfer when a public sports result is confirmed.
+          <!-- Subheadline -->
+          <p class="animate-slide-up delay-200 mt-6 text-lg leading-relaxed" style="color: oklch(0.65 0.010 145); max-width: 480px;">
+            SIDES locks your sports challenge in escrow inside Telegram — winner gets paid automatically when the match ends. Zero flaking. Zero house edge.
+          </p>
 
-REVENUE MODEL
-Phase 1 (0-1000 users): 0% commission. Every free challenge is viral marketing.
-Phase 2:
-- Challenges above $50: 2% of pot
-- Premium subscription ($4.99/mo): stats, rankings, tournament brackets
-- White-label for Telegram sports channels: they get their own branded bot, earn 50% of commission
-- Group challenges: entry-fee tournaments, bot takes 5%
+          <!-- CTAs -->
+          <div class="animate-slide-up delay-300 mt-8 flex flex-wrap gap-3 items-center">
+            <a href="https://t.me/sidesbot" class="btn-primary animate-pulse-glow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.44.7-.9.44l-2.46-1.82-1.18 1.14c-.13.13-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.76 14.16 6.34 13.4c-.54-.17-.56-.54.12-.8l8.92-3.44c.44-.16.82.1.26.64z"/></svg>
+              Open @sidesbot
+            </a>
+            <a href="#how-it-works" class="btn-ghost">See how it works</a>
+          </div>
 
-COMPETITIVE GAP
-Polymarket/Kalshi = for traders, not friends. WagerLab = separate app, virtual currency only. BetOpenly = web only, no Telegram. Predo Bot = blockchain/Solana, too complex. NO ONE does P2P sports challenges INSIDE Telegram with real money WITHOUT crypto.
+          <!-- Micro social proof -->
+          <div class="animate-slide-up delay-400 mt-8 flex items-center gap-5">
+            <div class="flex -space-x-2">
+              <div style="width:32px;height:32px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.3);border:2px solid oklch(0.09 0.006 145);display:flex;align-items:center;justify-content:center;font-size:14px;">⚽</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:oklch(0.64 0.22 32 / 0.3);border:2px solid oklch(0.09 0.006 145);display:flex;align-items:center;justify-content:center;font-size:14px;">🏀</div>
+              <div style="width:32px;height:32px;border-radius:50%;background:oklch(0.55 0.15 280 / 0.3);border:2px solid oklch(0.09 0.006 145);display:flex;align-items:center;justify-content:center;font-size:14px;">🏆</div>
+            </div>
+            <p style="font-size:0.875rem;color:oklch(0.55 0.010 145);">
+              Premier League · NBA · Champions League · more coming
+            </p>
+          </div>
+        </div>
 
-WHAT I NEED FROM WILLO
+        <!-- Right: Bot UI Mockup -->
+        <div class="animate-slide-up delay-200 relative flex justify-center lg:justify-end">
+          <div class="relative" style="width:100%;max-width:340px;">
+            <!-- Phone frame -->
+            <div style="
+              background: oklch(0.11 0.007 145);
+              border: 1.5px solid oklch(0.20 0.010 145);
+              border-radius: 24px;
+              padding: 16px;
+              box-shadow: 0 32px 80px oklch(0 0 0 / 0.5), 0 0 40px oklch(0.72 0.22 145 / 0.08);
+            ">
+              <!-- Chat header -->
+              <div style="display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid oklch(0.20 0.010 145);margin-bottom:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,oklch(0.72 0.22 145),oklch(0.60 0.20 145));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:oklch(0.09 0.006 145);font-family:'Archivo Black',sans-serif;">S</div>
+                <div>
+                  <div style="font-family:'Archivo Black',sans-serif;font-size:14px;color:oklch(0.96 0.005 145);">@sidesbot</div>
+                  <div style="font-size:11px;color:oklch(0.72 0.22 145);">● online</div>
+                </div>
+              </div>
 
-1. BRAND &amp; IDENTITY
-   - Logo for SPORIM (sporty, bold, Russian-friendly)
-   - Logo for SIDES (clean, international, tech-feel)
-   - Color palette, typography, brand guidelines
-   - Tagline ideas (&quot;No house. Just you and them.&quot;)
+              <!-- Messages -->
+              <div style="display:flex;flex-direction:column;gap:10px;font-family:'Barlow',sans-serif;font-size:13px;">
 
-2. LANDING PAGE
-   - sporim.io (or similar) — hero section, how it works, sports supported, CTA to open Telegram bot
-   - Mobile-first design (most traffic from Telegram)
-   - Sections: Hero → How It Works → Sports Calendar → Trust/Escrow Explainer → FAQ → Footer
-   - FAQ must address &quot;Is this gambling?&quot; — answer: no, we are technology escrow
+                <!-- Bot message -->
+                <div style="display:flex;gap:8px;align-items:flex-end;">
+                  <div style="width:26px;height:26px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">S</div>
+                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:220px;color:oklch(0.85 0.008 145);">
+                    ⚽ <strong style="color:oklch(0.96 0.005 145);">Arsenal vs Man City</strong><br/>
+                    <span style="color:oklch(0.55 0.010 145);font-size:12px;">Premier League · Sat 15:00</span><br/><br/>
+                    Pick your side:
+                  </div>
+                </div>
 
-3. GITHUB REPOSITORY
-   - Python project structure for Telegram bot
-   - Using python-telegram-bot v20 framework
-   - Clean architecture: handlers/ (Telegram code), services/ (business logic), models.py (SQLAlchemy ORM), config.py
-   - README with setup instructions
-   - Placeholder for football-data.org API integration
-   - Placeholder for Telegram Stars payment flow
+                <!-- User choice buttons -->
+                <div style="display:flex;gap:6px;margin-left:34px;flex-wrap:wrap;">
+                  <div style="background:oklch(0.72 0.22 145 / 0.15);border:1.5px solid oklch(0.72 0.22 145 / 0.5);border-radius:8px;padding:6px 12px;font-size:12px;color:oklch(0.72 0.22 145);font-weight:600;">🔴 Arsenal</div>
+                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:8px;padding:6px 12px;font-size:12px;color:oklch(0.65 0.010 145);">Draw</div>
+                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:8px;padding:6px 12px;font-size:12px;color:oklch(0.65 0.010 145);">🔵 Man City</div>
+                </div>
 
-4. ROADMAP
-   - V1 (by May 23): MVP with Premier League, challenge creation, invite links, escrow, manual admin resolution, 0% commission
-   - V1.1 (May 28): Auto-resolution via API, result share card
-   - V1.2 (June): NBA support added
-   - V2 (Summer 2026): World Cup, all leagues, white-label, commission enabled
+                <!-- User message -->
+                <div style="display:flex;justify-content:flex-end;">
+                  <div style="background:oklch(0.72 0.22 145 / 0.12);border:1px solid oklch(0.72 0.22 145 / 0.25);border-radius:16px 16px 4px 16px;padding:10px 14px;max-width:200px;color:oklch(0.85 0.008 145);">
+                    Arsenal, <strong style="color:oklch(0.72 0.22 145);">⭐ 500 Stars</strong>
+                  </div>
+                </div>
 
-5. ANALYTICS SETUP
-   - Google Analytics or Plausible
-   - Conversion funnel: Landing → Bot Open → Challenge Created → Challenge Accepted → Payment Deposited
+                <!-- Bot confirms -->
+                <div style="display:flex;gap:8px;align-items:flex-end;">
+                  <div style="width:26px;height:26px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">S</div>
+                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:220px;color:oklch(0.85 0.008 145);">
+                    🔒 Stakes locked in escrow.<br/>
+                    <span style="color:oklch(0.55 0.010 145);font-size:12px;">Share link to challenge a friend:</span><br/>
+                    <span style="color:oklch(0.72 0.22 145);font-size:12px;word-break:break-all;">t.me/sidesbot?start=ref_8f2a</span>
+                  </div>
+                </div>
 
-6. EMAIL CAPTURE
-   - Waitlist/early access form on landing page
-   - Email for sports fans who want to know when we launch their favorite league
+                <!-- Winner notification -->
+                <div style="display:flex;gap:8px;align-items:flex-end;">
+                  <div style="width:26px;height:26px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">S</div>
+                  <div style="background:oklch(0.72 0.22 145 / 0.12);border:1.5px solid oklch(0.72 0.22 145 / 0.4);border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:220px;">
+                    🏆 <strong style="color:oklch(0.72 0.22 145);">You won! ⭐ 980 Stars</strong> sent to your account.<br/>
+                    <span style="font-size:11px;color:oklch(0.55 0.010 145);">FT: Arsenal 2–1 Man City</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-7. MARKETING ASSETS
-   - 5 tweet/thread templates for launch
-   - 3 Reddit post templates (r/soccer, r/NBA, r/startups)
-   - Pitch text for Telegram sports channel admins (outreach template requesting they try the bot)
+            <!-- Floating stat pill -->
+            <div style="
+              position:absolute;
+              top:-16px;
+              right:-20px;
+              background:oklch(0.64 0.22 32);
+              color:#fff;
+              font-family:'Barlow',sans-serif;
+              font-weight:700;
+              font-size:12px;
+              padding:6px 12px;
+              border-radius:999px;
+              white-space:nowrap;
+              box-shadow:0 4px 20px oklch(0.64 0.22 32 / 0.4);
+            ">🔥 Challenge open</div>
 
-SPORTS API TO USE
-- football-data.org (free tier) — Premier League, World Cup
-- balldontlie.io (free) — NBA
+            <!-- Floating escrow pill -->
+            <div style="
+              position:absolute;
+              bottom:-14px;
+              left:-10px;
+              background:oklch(0.13 0.009 145);
+              border:1px solid oklch(0.72 0.22 145 / 0.3);
+              color:oklch(0.72 0.22 145);
+              font-family:'Barlow',sans-serif;
+              font-weight:600;
+              font-size:12px;
+              padding:6px 12px;
+              border-radius:999px;
+              white-space:nowrap;
+              box-shadow:0 4px 20px oklch(0 0 0 / 0.3);
+            ">🔒 Funds held in escrow</div>
+          </div>
+        </div>
 
-TECH STACK
-- Python 3.12 + python-telegram-bot v20
-- SQLite + SQLAlchemy ORM (upgrade path to PostgreSQL)
-- Telegram Stars (XTR) for payments
-- Hosting: Railway or Replit
+      </div>
+    </div>
+  </section>
 
-LEGAL POSITIONING
-We use &quot;challenge&quot; not &quot;bet&quot;. We use &quot;escrow service&quot; not &quot;gambling platform&quot;. We process no fiat directly — only Telegram Stars. Terms of Service must state: &quot;Users are responsible for compliance with local laws. Platform is a technology service provider, not a gambling operator.&quot;
 
-HARD DEADLINE: Working MVP by May 23, 2025. Viral launch on Champions League Final (May 30).">
-  <!-- Hero — the Product Agent will replace this entire page -->
-  <section class="relative min-h-[80vh] flex items-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-surface-50 to-brand-500/10"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-surface-900 font-display max-w-4xl mx-auto leading-[1.1] animate-slide-up">
-        Your New Business
-      </h1>
-      <p class="mt-6 text-lg md:text-xl text-surface-800/60 max-w-2xl mx-auto leading-relaxed animate-slide-up delay-100">
-        I want to build SPORIM (Russian market, @sporimbot) and SIDES (English market, @sidesbot) — a peer-to-peer sports challenge platform inside Telegram. Think &quot;Venmo for bets between friends&quot; but we are NOT a bookmaker — we are an escrow technology platform.
+  <!-- =====================================================================
+       TRUST BAR — key stats
+       ===================================================================== -->
+  <section style="background-color:oklch(0.11 0.007 145);border-top:1px solid oklch(0.17 0.010 145);border-bottom:1px solid oklch(0.17 0.010 145);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="font-display text-3xl font-black text-brand" style="font-family:'Archivo Black',sans-serif;color:oklch(0.72 0.22 145);">0%</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">commission at launch</div>
+        </div>
+        <div>
+          <div class="font-display text-3xl font-black" style="font-family:'Archivo Black',sans-serif;color:oklch(0.96 0.005 145);">P2P</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">no house, pure escrow</div>
+        </div>
+        <div>
+          <div class="font-display text-3xl font-black" style="font-family:'Archivo Black',sans-serif;color:oklch(0.96 0.005 145);">Auto</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">result verification</div>
+        </div>
+        <div>
+          <div class="font-display text-3xl font-black" style="font-family:'Archivo Black',sans-serif;color:oklch(0.72 0.22 145);">Inside Telegram</div>
+          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">no app download needed</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-THE PROBLEM
-People constantly challenge each other on sports in chats: &quot;I bet Arsenal wins&quot;, &quot;wanna bet $50?&quot;, &quot;if my team loses I pay for dinner&quot;. But these challenges are rarely paid out — someone forgets, someone dodges, nobody tracks it. We turn a conversational habit into a product.
 
-THE SOLUTION
-A Telegram bot where:
-1. User picks a sports match (Premier League, NBA, World Cup), picks a side (Home / Draw / Away), and enters an amount in Telegram Stars
-2. Bot generates an invite link (t.me/sporimbot?start=ref_123)
-3. Friend clicks the link, accepts the challenge, both lock equal amount — bot holds funds (escrow)
-4. After the match ends, bot checks the result via sports API and automatically sends the full pot to the winner minus 2% platform fee
+  <!-- =====================================================================
+       HOW IT WORKS
+       ===================================================================== -->
+  <section id="how-it-works" style="background-color:oklch(0.09 0.006 145);padding:6rem 0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-Two modes:
-- &quot;Challenge a Friend&quot; — private invite link for a specific person
-- &quot;The Market&quot; — open list of unaccepted challenges, anyone can accept
+      <!-- Section header -->
+      <div class="text-center mb-16">
+        <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.72 0.22 145);margin-bottom:12px;">How it works</p>
+        <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,5vw,3.5rem);color:oklch(0.96 0.005 145);line-height:1.05;">
+          Three steps.<br />No friction.
+        </h2>
+      </div>
 
-WHY NOW
-- May 30, 2025: Champions League Final — perfect viral launch event
-- June 2025: NBA Finals
-- Summer 2026: FIFA World Cup — millions of casual fans will want to challenge friends
+      <!-- VS divider structure — the distinctive element -->
+      <div class="relative">
 
-THE BRAND
-- RU/CIS: SPORIM (@sporimbot). &quot;Sporim na sotku?&quot; is already a meme in Russian chats — the name IS the call to action
-- Global: SIDES (@sidesbot). &quot;Pick a side.&quot; No taboo words (bet/wager/gamble). Clean for regulators and ad networks
+        <!-- Step line connector (desktop) -->
+        <div class="hidden md:block absolute top-16 left-0 right-0 h-px" style="background: linear-gradient(to right, transparent 5%, oklch(0.20 0.010 145) 20%, oklch(0.20 0.010 145) 80%, transparent 95%);top:52px;z-index:0;"></div>
 
-POSITIONING
-We are NOT gambling. We are a social escrow platform — like PayPal for friend challenges. We don&#39;t take bets, don&#39;t set odds, don&#39;t take risk. We hold funds between two private individuals and automate the transfer when a public sports result is confirmed.
+        <div class="grid md:grid-cols-3 gap-8 relative z-10">
 
-REVENUE MODEL
-Phase 1 (0-1000 users): 0% commission. Every free challenge is viral marketing.
-Phase 2:
-- Challenges above $50: 2% of pot
-- Premium subscription ($4.99/mo): stats, rankings, tournament brackets
-- White-label for Telegram sports channels: they get their own branded bot, earn 50% of commission
-- Group challenges: entry-fee tournaments, bot takes 5%
+          <!-- Step 1 -->
+          <div class="text-center">
+            <div style="
+              width:64px;height:64px;border-radius:50%;
+              background:linear-gradient(135deg,oklch(0.72 0.22 145 / 0.15),oklch(0.72 0.22 145 / 0.05));
+              border:1.5px solid oklch(0.72 0.22 145 / 0.4);
+              display:flex;align-items:center;justify-content:center;
+              margin:0 auto 24px;
+              font-family:'Archivo Black',sans-serif;font-size:24px;
+              color:oklch(0.72 0.22 145);
+            ">1</div>
+            <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.25rem;color:oklch(0.96 0.005 145);margin-bottom:10px;">Pick your side</h3>
+            <p style="font-family:'Barlow',sans-serif;font-size:15px;color:oklch(0.60 0.010 145);line-height:1.6;">
+              Open @sidesbot, choose a live match — Premier League, NBA, Champions League — and pick Home, Draw, or Away.
+            </p>
+          </div>
 
-COMPETITIVE GAP
-Polymarket/Kalshi = for traders, not friends. WagerLab = separate app, virtual currency only. BetOpenly = web only, no Telegram. Predo Bot = blockchain/Solana, too complex. NO ONE does P2P sports challenges INSIDE Telegram with real money WITHOUT crypto.
+          <!-- VS -->
+          <div class="text-center">
+            <div style="
+              width:64px;height:64px;border-radius:50%;
+              background:linear-gradient(135deg,oklch(0.64 0.22 32 / 0.15),oklch(0.64 0.22 32 / 0.05));
+              border:1.5px solid oklch(0.64 0.22 32 / 0.4);
+              display:flex;align-items:center;justify-content:center;
+              margin:0 auto 24px;
+              font-family:'Archivo Black',sans-serif;font-size:20px;
+              color:oklch(0.64 0.22 32);
+            ">2</div>
+            <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.25rem;color:oklch(0.96 0.005 145);margin-bottom:10px;">Lock stakes in escrow</h3>
+            <p style="font-family:'Barlow',sans-serif;font-size:15px;color:oklch(0.60 0.010 145);line-height:1.6;">
+              Set your amount in Telegram Stars. Share your invite link. Your friend accepts the opposite side — both stakes are locked. No one can back out.
+            </p>
+          </div>
 
-WHAT I NEED FROM WILLO
+          <!-- Step 3 -->
+          <div class="text-center">
+            <div style="
+              width:64px;height:64px;border-radius:50%;
+              background:linear-gradient(135deg,oklch(0.72 0.22 145 / 0.15),oklch(0.72 0.22 145 / 0.05));
+              border:1.5px solid oklch(0.72 0.22 145 / 0.4);
+              display:flex;align-items:center;justify-content:center;
+              margin:0 auto 24px;
+              font-family:'Archivo Black',sans-serif;font-size:24px;
+              color:oklch(0.72 0.22 145);
+            ">3</div>
+            <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.25rem;color:oklch(0.96 0.005 145);margin-bottom:10px;">Winner gets paid</h3>
+            <p style="font-family:'Barlow',sans-serif;font-size:15px;color:oklch(0.60 0.010 145);line-height:1.6;">
+              The moment the final whistle blows, SIDES confirms the result via live sports data and sends the full pot to the winner automatically. No disputes.
+            </p>
+          </div>
 
-1. BRAND &amp; IDENTITY
-   - Logo for SPORIM (sporty, bold, Russian-friendly)
-   - Logo for SIDES (clean, international, tech-feel)
-   - Color palette, typography, brand guidelines
-   - Tagline ideas (&quot;No house. Just you and them.&quot;)
+        </div>
+      </div>
 
-2. LANDING PAGE
-   - sporim.io (or similar) — hero section, how it works, sports supported, CTA to open Telegram bot
-   - Mobile-first design (most traffic from Telegram)
-   - Sections: Hero → How It Works → Sports Calendar → Trust/Escrow Explainer → FAQ → Footer
-   - FAQ must address &quot;Is this gambling?&quot; — answer: no, we are technology escrow
+      <!-- Bold VS statement -->
+      <div class="mt-20 text-center relative">
+        <div style="
+          font-family:'Archivo Black',sans-serif;
+          font-size:clamp(6rem,20vw,14rem);
+          line-height:1;
+          background: linear-gradient(135deg, oklch(0.72 0.22 145 / 0.12), oklch(0.64 0.22 32 / 0.08));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          user-select:none;
+          letter-spacing:-0.04em;
+        ">VS</div>
+        <p style="margin-top:-2rem;font-family:'Barlow',sans-serif;font-size:18px;color:oklch(0.55 0.010 145);position:relative;z-index:2;">
+          Every challenge needs two sides. That's the whole point.
+        </p>
+      </div>
 
-3. GITHUB REPOSITORY
-   - Python project structure for Telegram bot
-   - Using python-telegram-bot v20 framework
-   - Clean architecture: handlers/ (Telegram code), services/ (business logic), models.py (SQLAlchemy ORM), config.py
-   - README with setup instructions
-   - Placeholder for football-data.org API integration
-   - Placeholder for Telegram Stars payment flow
+    </div>
+  </section>
 
-4. ROADMAP
-   - V1 (by May 23): MVP with Premier League, challenge creation, invite links, escrow, manual admin resolution, 0% commission
-   - V1.1 (May 28): Auto-resolution via API, result share card
-   - V1.2 (June): NBA support added
-   - V2 (Summer 2026): World Cup, all leagues, white-label, commission enabled
 
-5. ANALYTICS SETUP
-   - Google Analytics or Plausible
-   - Conversion funnel: Landing → Bot Open → Challenge Created → Challenge Accepted → Payment Deposited
+  <!-- =====================================================================
+       SUPPORTED SPORTS + UPCOMING MATCHES
+       ===================================================================== -->
+  <section style="background-color:oklch(0.11 0.007 145);padding:6rem 0;border-top:1px solid oklch(0.17 0.010 145);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-6. EMAIL CAPTURE
-   - Waitlist/early access form on landing page
-   - Email for sports fans who want to know when we launch their favorite league
+      <div class="text-center mb-12">
+        <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.64 0.22 32);margin-bottom:12px;">Supported sports</p>
+        <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.75rem,4vw,3rem);color:oklch(0.96 0.005 145);line-height:1.1;">
+          Big matches. Bigger bragging rights.
+        </h2>
+        <p style="margin-top:16px;font-family:'Barlow',sans-serif;font-size:17px;color:oklch(0.60 0.010 145);max-width:520px;margin-left:auto;margin-right:auto;">
+          Live challenges across the world's most-argued-about sports — with more leagues added every week.
+        </p>
+      </div>
 
-7. MARKETING ASSETS
-   - 5 tweet/thread templates for launch
-   - 3 Reddit post templates (r/soccer, r/NBA, r/startups)
-   - Pitch text for Telegram sports channel admins (outreach template requesting they try the bot)
+      <!-- Sport cards -->
+      <div class="grid md:grid-cols-3 gap-5 mb-12">
 
-SPORTS API TO USE
-- football-data.org (free tier) — Premier League, World Cup
-- balldontlie.io (free) — NBA
+        <!-- Football -->
+        <div class="card-dark p-6" style="border:1px solid oklch(0.72 0.22 145 / 0.2);background:oklch(0.12 0.009 145);">
+          <div style="font-size:2.5rem;margin-bottom:12px;">⚽</div>
+          <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);margin-bottom:6px;">Football</h3>
+          <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);line-height:1.5;">Premier League · Champions League · World Cup qualifiers · Serie A · Bundesliga</p>
+          <div style="margin-top:12px;display:inline-block;background:oklch(0.72 0.22 145 / 0.1);color:oklch(0.72 0.22 145);font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid oklch(0.72 0.22 145 / 0.2);">LIVE</div>
+        </div>
 
-TECH STACK
-- Python 3.12 + python-telegram-bot v20
-- SQLite + SQLAlchemy ORM (upgrade path to PostgreSQL)
-- Telegram Stars (XTR) for payments
-- Hosting: Railway or Replit
+        <!-- Basketball -->
+        <div class="card-dark p-6" style="border:1px solid oklch(0.64 0.22 32 / 0.2);background:oklch(0.12 0.009 145);">
+          <div style="font-size:2.5rem;margin-bottom:12px;">🏀</div>
+          <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);margin-bottom:6px;">Basketball</h3>
+          <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);line-height:1.5;">NBA · NBA Finals · EuroLeague · FIBA World Cup</p>
+          <div style="margin-top:12px;display:inline-block;background:oklch(0.64 0.22 32 / 0.1);color:oklch(0.64 0.22 32);font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid oklch(0.64 0.22 32 / 0.2);">LIVE</div>
+        </div>
 
-LEGAL POSITIONING
-We use &quot;challenge&quot; not &quot;bet&quot;. We use &quot;escrow service&quot; not &quot;gambling platform&quot;. We process no fiat directly — only Telegram Stars. Terms of Service must state: &quot;Users are responsible for compliance with local laws. Platform is a technology service provider, not a gambling operator.&quot;
+        <!-- More coming -->
+        <div class="card-dark p-6" style="background:oklch(0.12 0.009 145);border-style:dashed;">
+          <div style="font-size:2.5rem;margin-bottom:12px;">🏆</div>
+          <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);margin-bottom:6px;">More coming</h3>
+          <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);line-height:1.5;">Tennis · Ice Hockey · MMA · Cricket · F1 — vote for your league below</p>
+          <div style="margin-top:12px;display:inline-block;background:oklch(0.20 0.010 145);color:oklch(0.65 0.010 145);font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;">SOON</div>
+        </div>
+      </div>
 
-HARD DEADLINE: Working MVP by May 23, 2025. Viral launch on Champions League Final (May 30).
+      <!-- Upcoming match highlights -->
+      <div style="background:oklch(0.09 0.006 145);border:1px solid oklch(0.17 0.010 145);border-radius:12px;padding:24px;">
+        <div style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.55 0.010 145);margin-bottom:16px;">🔥 Hot upcoming challenges</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:oklch(0.13 0.009 145);border-radius:8px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">⚽</span>
+              <div>
+                <div style="font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;color:oklch(0.90 0.006 145);">Champions League Final</div>
+                <div style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.55 0.010 145);">May 30, 2025 · 20:00 CET</div>
+              </div>
+            </div>
+            <a href="https://t.me/sidesbot" style="background:oklch(0.72 0.22 145 / 0.15);color:oklch(0.72 0.22 145);font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;border:1px solid oklch(0.72 0.22 145 / 0.3);white-space:nowrap;">Challenge now →</a>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:oklch(0.13 0.009 145);border-radius:8px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">🏀</span>
+              <div>
+                <div style="font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;color:oklch(0.90 0.006 145);">NBA Finals Game 1</div>
+                <div style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.55 0.010 145);">June 2025 · TBD</div>
+              </div>
+            </div>
+            <a href="https://t.me/sidesbot" style="background:oklch(0.64 0.22 32 / 0.12);color:oklch(0.64 0.22 32);font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;border:1px solid oklch(0.64 0.22 32 / 0.3);white-space:nowrap;">Challenge now →</a>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:oklch(0.13 0.009 145);border-radius:8px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">🏆</span>
+              <div>
+                <div style="font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;color:oklch(0.90 0.006 145);">FIFA World Cup 2026</div>
+                <div style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.55 0.010 145);">Summer 2026 · Be ready</div>
+              </div>
+            </div>
+            <div style="background:oklch(0.20 0.010 145);color:oklch(0.55 0.010 145);font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;white-space:nowrap;">Coming soon</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       TRUST & ESCROW EXPLAINER — "Why not just" + safety
+       ===================================================================== -->
+  <section style="background-color:oklch(0.09 0.006 145);padding:6rem 0;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Explainer copy -->
+        <div>
+          <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.72 0.22 145);margin-bottom:12px;">Why it works</p>
+          <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.75rem,4vw,3rem);color:oklch(0.96 0.005 145);line-height:1.1;margin-bottom:20px;">
+            No house edge.<br />No bookmaker.<br /><span style="color:oklch(0.72 0.22 145);">Just escrow.</span>
+          </h2>
+          <p style="font-family:'Barlow',sans-serif;font-size:17px;color:oklch(0.65 0.010 145);line-height:1.7;margin-bottom:24px;">
+            SIDES is a technology platform, not a gambling operator. We hold your stakes — like PayPal holds a payment — and release them automatically when a public sports result is confirmed. We don't set odds. We don't take a position. We don't profit if you lose.
+          </p>
+          <p style="font-family:'Barlow',sans-serif;font-size:17px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            Think of it as Venmo for friend challenges: two people, equal stakes, automatic settlement. The result comes from a neutral third-party sports API — not us.
+          </p>
+        </div>
+
+        <!-- Right: Trust pillars -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.72 0.22 145 / 0.15);border:1px solid oklch(0.72 0.22 145 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">🔒</div>
+            <div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Funds locked at accept</div>
+              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">Both parties lock stakes before the match starts. Nobody can back out once the game is live.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.64 0.22 32 / 0.15);border:1px solid oklch(0.64 0.22 32 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">⚡</div>
+            <div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Instant auto-payout</div>
+              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">Results are pulled from live football-data.org and balldontlie.io APIs. No manual review. No delays. No disputes.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.72 0.22 145 / 0.15);border:1px solid oklch(0.72 0.22 145 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">⭐</div>
+            <div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Telegram Stars only</div>
+              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">No credit cards. No crypto wallets. No KYC friction. SIDES uses Telegram's native payment layer — already on your phone.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
+            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.64 0.22 32 / 0.15);border:1px solid oklch(0.64 0.22 32 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">👥</div>
+            <div>
+              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Two modes: private or open market</div>
+              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">Challenge a specific friend with a private link, or post to The Market — an open list where anyone in the community can accept.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       FAQ
+       ===================================================================== -->
+  <section style="background-color:oklch(0.11 0.007 145);padding:6rem 0;border-top:1px solid oklch(0.17 0.010 145);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-12">
+        <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.64 0.22 32);margin-bottom:12px;">FAQ</p>
+        <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.75rem,4vw,3rem);color:oklch(0.96 0.005 145);line-height:1.1;">
+          Real questions. Straight answers.
+        </h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:2px;">
+
+        <!-- FAQ Item 1 — KEY QUESTION -->
+        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
+          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+            <span>Is this gambling? Am I breaking the law?</span>
+            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
+          </summary>
+          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            <strong style="color:oklch(0.72 0.22 145);">No.</strong> SIDES is an escrow technology platform — not a gambling operator. We don't set odds, take positions, or profit from your losses. Two individuals agree to a challenge, lock equal funds, and the winner is determined by a publicly verifiable sports result. SIDES is the technical intermediary, like PayPal processing a payment between friends. You are responsible for compliance with your local laws. SIDES does not operate as a gambling service in any jurisdiction.
+          </div>
+        </details>
+
+        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
+          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+            <span>What are Telegram Stars?</span>
+            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
+          </summary>
+          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            Telegram Stars (XTR) is Telegram's native in-app currency — you can buy them with a regular credit or debit card inside the Telegram app. No crypto wallet, no sign-up beyond Telegram. Think of them like app store credits. When you win, Stars are sent directly to your Telegram account.
+          </div>
+        </details>
+
+        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
+          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+            <span>What happens if the match is cancelled or postponed?</span>
+            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
+          </summary>
+          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            If a match is officially postponed or cancelled, both stakes are returned in full to each participant. No fee. No fuss. The escrow only releases when a confirmed final result exists.
+          </div>
+        </details>
+
+        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
+          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+            <span>Does SIDES take a cut?</span>
+            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
+          </summary>
+          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            At launch: <strong style="color:oklch(0.72 0.22 145);">0% commission</strong>. Every challenge is completely free. Once we scale, challenges above $50 will carry a 2% platform fee — still less than anything you'd pay anywhere else. Free challenges remain free forever for small amounts.
+          </div>
+        </details>
+
+        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
+          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+            <span>Can I challenge a stranger?</span>
+            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
+          </summary>
+          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            Yes — via The Market. Post your open challenge and anyone in the SIDES community can accept the opposite side. Great for when your friends won't pick the wrong team.
+          </div>
+        </details>
+
+        <details>
+          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+            <span>Do I need to download anything?</span>
+            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
+          </summary>
+          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
+            No. SIDES is a Telegram bot. If you have Telegram (and you do), you're ready. Just open @sidesbot and start challenging.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       FINAL CTA — email capture + Telegram
+       ===================================================================== -->
+  <section id="cta" class="noise-overlay" style="background-color:oklch(0.09 0.006 145);padding:7rem 0;position:relative;overflow:hidden;">
+
+    <!-- Background glows -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80vw;height:80vw;max-width:700px;max-height:700px;background:radial-gradient(ellipse,oklch(0.72 0.22 145 / 0.12) 0%,transparent 65%);filter:blur(2px);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <!-- Big statement -->
+      <div style="font-family:'Archivo Black',sans-serif;font-size:clamp(3rem,10vw,7rem);line-height:0.95;margin-bottom:24px;letter-spacing:-0.03em;">
+        <span style="color:oklch(0.96 0.005 145);">No house.</span><br />
+        <span style="color:oklch(0.72 0.22 145);">Just you</span><br />
+        <span style="color:oklch(0.96 0.005 145);">and them.</span>
+      </div>
+
+      <p style="font-family:'Barlow',sans-serif;font-size:18px;color:oklch(0.60 0.010 145);line-height:1.6;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;">
+        Stop letting your friends dodge the payout. Challenge them on Telegram right now — it's free, it's instant, and the bot doesn't forget.
       </p>
-      <div class="mt-10 animate-slide-up delay-200">
-        <a href="#cta" class="inline-block px-8 py-3.5 bg-brand-500 text-white font-semibold rounded-lg hover:bg-brand-600 transition-colors text-base">
-          Get Started
-        </a>
+
+      <!-- Primary CTA -->
+      <a href="https://t.me/sidesbot" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;margin-bottom:16px;display:inline-flex;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.44.7-.9.44l-2.46-1.82-1.18 1.14c-.13.13-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.76 14.16 6.34 13.4c-.54-.17-.56-.54.12-.8l8.92-3.44c.44-.16.82.1.26.64z"/></svg>
+        Open @sidesbot on Telegram
+      </a>
+      <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.45 0.008 145);margin-bottom:40px;">Free to start. No download. No credit card.</p>
+
+      <!-- Email capture for waitlist -->
+      <div style="background:oklch(0.13 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:14px;padding:28px;max-width:480px;margin:0 auto;">
+        <p style="font-family:'Archivo Black',sans-serif;font-size:16px;color:oklch(0.96 0.005 145);margin-bottom:6px;">Get the launch alert</p>
+        <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);margin-bottom:16px;">We'll tell you when your favourite league goes live.</p>
+        <form
+          style="display:flex;flex-direction:column;gap:10px;"
+          onsubmit="this.querySelector('button').textContent='✓ You\'re on the list!';this.querySelector('button').style.background='oklch(0.60 0.20 145)';return false;"
+        >
+          <input
+            type="email"
+            placeholder="your@email.com"
+            required
+            style="
+              background:oklch(0.09 0.006 145);
+              border:1.5px solid oklch(0.20 0.010 145);
+              border-radius:8px;
+              padding:12px 16px;
+              font-family:'Barlow',sans-serif;
+              font-size:15px;
+              color:oklch(0.96 0.005 145);
+              outline:none;
+              width:100%;
+              transition:border-color 0.15s;
+            "
+            onfocus="this.style.borderColor='oklch(0.72 0.22 145 / 0.6)'"
+            onblur="this.style.borderColor='oklch(0.20 0.010 145)'"
+          />
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:12px 24px;">
+            Notify me
+          </button>
+        </form>
       </div>
+
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cta" class="py-20 md:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl bg-brand-500 p-10 md:p-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-display">Ready to get started?</h2>
-        <p class="mt-4 text-lg text-white/80 max-w-xl mx-auto">Get in touch and see what we can do for you.</p>
-        <a href="mailto:hello@example.com" class="mt-8 inline-block px-8 py-3.5 bg-white text-surface-900 font-semibold rounded-lg hover:bg-surface-100 transition-colors text-base">
-          Contact Us
-        </a>
-      </div>
-    </div>
-  </section>
 </Base>

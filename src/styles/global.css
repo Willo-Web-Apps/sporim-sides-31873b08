@@ -1,62 +1,207 @@
-/* GOOGLE FONTS — Add @import url("https://fonts.googleapis.com/css2?...")
-   lines HERE, ABOVE @import "tailwindcss". CSS spec: every @import must
-   appear before any other rule (incl. @theme, @keyframes). A misplaced
-   @import will fail the build (`@import rules must precede all rules`). */
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400&family=Barlow:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 /* -----------------------------------------------------------------------
-   Design Tokens — customize these to change the entire site's look.
-   The Product Agent should edit this @theme block to match the business:
-   - Swap fonts (add Google Fonts @import at the very TOP of this file,
-     then update --font-display / --font-body below)
-   - Change brand colors to match the business personality
-   - Flip surface colors for dark theme (swap light/dark values)
+   Design Tokens — SIDES
+   Dark-modern sports challenge platform. Scoreboard-at-night aesthetic.
+   Electric green (#00C853) + fired-up orange (#FF5722) on deep near-black.
    ----------------------------------------------------------------------- */
 
 @theme {
-  /* Typography — replace with distinctive Google Fonts for the business */
-  --font-display: ui-sans-serif, system-ui, sans-serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+  /* Typography */
+  --font-display: 'Archivo Black', ui-sans-serif, sans-serif;
+  --font-body: 'Barlow', ui-sans-serif, sans-serif;
 
-  /* Brand color scale — agent should customize per business */
-  --color-brand-50: oklch(0.97 0.01 250);
-  --color-brand-100: oklch(0.93 0.02 250);
-  --color-brand-200: oklch(0.87 0.04 250);
-  --color-brand-400: oklch(0.70 0.12 250);
-  --color-brand-500: oklch(0.60 0.16 250);
-  --color-brand-600: oklch(0.50 0.16 250);
+  /* Brand color scale — Electric Green */
+  --color-brand-50:  oklch(0.97 0.04 145);
+  --color-brand-100: oklch(0.92 0.08 145);
+  --color-brand-200: oklch(0.84 0.13 145);
+  --color-brand-400: oklch(0.75 0.20 145);
+  --color-brand-500: oklch(0.72 0.22 145);
+  --color-brand-600: oklch(0.60 0.20 145);
 
-  /* Surface colors — light theme defaults. Flip for dark theme:
-     surface-50 becomes near-black, surface-900 becomes near-white */
-  --color-surface-50: oklch(0.985 0.002 250);
-  --color-surface-100: oklch(0.96 0.004 250);
-  --color-surface-200: oklch(0.92 0.006 250);
-  --color-surface-800: oklch(0.30 0.015 250);
-  --color-surface-900: oklch(0.20 0.015 250);
-  --color-surface-950: oklch(0.14 0.012 250);
+  /* Accent color — Fired-up Orange */
+  --color-accent-400: oklch(0.70 0.20 32);
+  --color-accent-500: oklch(0.64 0.22 32);
+  --color-accent-600: oklch(0.55 0.20 32);
+
+  /* Surface colors — DARK THEME (flipped scale)
+     surface-50 = near-black (darkest background)
+     surface-950 = near-white (lightest text) */
+  --color-surface-50:  oklch(0.09 0.006 145);
+  --color-surface-100: oklch(0.11 0.007 145);
+  --color-surface-200: oklch(0.14 0.009 145);
+  --color-surface-300: oklch(0.18 0.010 145);
+  --color-surface-800: oklch(0.55 0.010 145);
+  --color-surface-900: oklch(0.75 0.008 145);
+  --color-surface-950: oklch(0.96 0.005 145);
 }
 
-/* Page-load animations — CSS only, no JS required */
+/* -----------------------------------------------------------------------
+   Base styles
+   ----------------------------------------------------------------------- */
+
+body {
+  background-color: oklch(0.09 0.006 145);
+  color: oklch(0.96 0.005 145);
+}
+
+/* -----------------------------------------------------------------------
+   Page-load animations
+   ----------------------------------------------------------------------- */
+
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out both;
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.72 0.22 145 / 0.4); }
+  50%       { box-shadow: 0 0 0 12px oklch(0.72 0.22 145 / 0); }
 }
 
-/* Staggered animation delays for cascading reveals */
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%       { transform: translateY(-8px) translateX(4px); }
+  66%       { transform: translateY(4px) translateX(-6px); }
+}
+
+.animate-fade-in  { animation: fadeIn  0.7s ease-out both; }
+.animate-slide-up { animation: slideUp 0.7s ease-out both; }
+.animate-slide-right { animation: slideRight 0.7s ease-out both; }
+.animate-pulse-glow  { animation: pulseGlow 2.5s ease-in-out infinite; }
+.animate-orb-float   { animation: orbFloat 18s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.10s; }
+.delay-200 { animation-delay: 0.20s; }
+.delay-300 { animation-delay: 0.30s; }
+.delay-400 { animation-delay: 0.40s; }
+.delay-500 { animation-delay: 0.50s; }
+.delay-600 { animation-delay: 0.60s; }
+
+/* -----------------------------------------------------------------------
+   Custom utilities
+   ----------------------------------------------------------------------- */
+
+.text-brand   { color: oklch(0.72 0.22 145); }
+.text-accent  { color: oklch(0.64 0.22 32); }
+.bg-brand-500 { background-color: oklch(0.72 0.22 145); }
+.bg-brand-600 { background-color: oklch(0.60 0.20 145); }
+.bg-accent-500 { background-color: oklch(0.64 0.22 32); }
+.bg-accent-600 { background-color: oklch(0.55 0.20 32); }
+
+.border-brand  { border-color: oklch(0.72 0.22 145 / 0.3); }
+.border-accent { border-color: oklch(0.64 0.22 32 / 0.3); }
+
+/* Gradient text */
+.text-gradient-green {
+  background: linear-gradient(135deg, oklch(0.72 0.22 145), oklch(0.84 0.13 145));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glowing green button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: oklch(0.72 0.22 145);
+  color: oklch(0.09 0.006 145);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.01em;
+  transition: background-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background-color: oklch(0.80 0.22 145);
+  box-shadow: 0 0 24px oklch(0.72 0.22 145 / 0.45);
+  transform: translateY(-1px);
+}
+
+/* Fired-up orange button */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: oklch(0.64 0.22 32);
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.01em;
+  transition: background-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+.btn-accent:hover {
+  background-color: oklch(0.70 0.22 32);
+  box-shadow: 0 0 24px oklch(0.64 0.22 32 / 0.45);
+  transform: translateY(-1px);
+}
+
+/* Ghost button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: transparent;
+  color: oklch(0.96 0.005 145);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1.5px solid oklch(0.72 0.22 145 / 0.4);
+  border-radius: 0.5rem;
+  letter-spacing: 0.01em;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: oklch(0.72 0.22 145 / 0.8);
+  color: oklch(0.72 0.22 145);
+  background-color: oklch(0.72 0.22 145 / 0.06);
+}
+
+/* Dark card */
+.card-dark {
+  background-color: oklch(0.13 0.009 145);
+  border: 1px solid oklch(0.20 0.010 145);
+  border-radius: 0.75rem;
+}
+
+/* Noise texture overlay — the quality differentiator */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: oklch(0.09 0.006 145); }
+::-webkit-scrollbar-thumb { background: oklch(0.20 0.010 145); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.72 0.22 145 / 0.5); }
