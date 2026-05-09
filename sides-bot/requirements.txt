@@ -1,0 +1,23 @@
+# =============================================================================
+# SIDES Bot — Python Dependencies
+# Install with: pip install -r requirements.txt
+# Tested with Python 3.12
+# =============================================================================
+
+# Telegram Bot framework (v21 — fully async, PTB v20+ API)
+python-telegram-bot[webhooks]==21.3
+
+# Database ORM (async-compatible)
+sqlalchemy==2.0.30
+
+# Async SQLite driver (required for SQLAlchemy async with SQLite)
+aiosqlite==0.20.0
+
+# HTTP client for sports APIs (async)
+httpx==0.27.0
+
+# Environment variable loading
+python-dotenv==1.0.1
+
+# Task scheduler for result auto-checking
+apscheduler==3.10.4
