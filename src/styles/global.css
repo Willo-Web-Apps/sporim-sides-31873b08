@@ -200,6 +200,36 @@ body {
   z-index: 1;
 }
 
+/* Scroll anchoring — prevent sticky header from covering section targets */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* FAQ details animation */
+details > div {
+  animation: slideUp 0.25s ease-out both;
+}
+
+/* Animated underline for nav links */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Score-ticker shimmer on match pills */
+@keyframes scoreTickIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-score-tick { animation: scoreTickIn 0.4s ease-out both; }
+
+/* Stagger fade for trust-bar items */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-count-up { animation: countUp 0.5s ease-out both; }
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: oklch(0.09 0.006 145); }
