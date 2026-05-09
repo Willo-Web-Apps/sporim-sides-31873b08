@@ -3,229 +3,305 @@ import Base from '../layouts/Base.astro';
 ---
 <Base title='SideUp — Landing Page'>
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">Side<span>Up</span></div>
-  <a class="nav-cta" href="https://t.me/sideupbot">Open @sideupbot</a>
-</nav>
+  <nav>
+    <a href="/" class="nav-logo">Side<span>Up</span></a>
+    <a href="https://t.me/sideupbot" class="nav-cta" target="_blank" rel="noopener">
+      ✈ Open in Telegram
+    </a>
+  </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="live-badge">
-    <span class="live-dot"></span>
-    Live now on Telegram
-  </div>
-  <h1>Your friend<br>talks big.<br><em>Make them prove it.</em></h1>
-  <p>SideUp locks your sports challenge in escrow inside Telegram — winner gets paid automatically when the match ends. Zero flaking. Zero house edge.</p>
-  <div class="hero-buttons">
-    <a class="btn-primary" href="https://t.me/sideupbot">⚡ Open @sideupbot</a>
-    <a class="btn-secondary" href="#how-it-works">See how it works</a>
-  </div>
-
-  <!-- Bot preview card -->
-  <div class="bot-preview">
-    <div class="bot-header">
-      <div class="bot-avatar">S</div>
-      <div>
-        <div class="bot-name">SideUp</div>
-        <div class="bot-handle">@sideupbot</div>
-      </div>
-      <div class="online-dot"></div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">Live now on Telegram</div>
+    <h1>Your friend<br>talks big.<br><em>Make them prove it.</em></h1>
+    <p class="hero-sub">
+      SideUp locks your sports challenge in escrow inside Telegram — winner gets paid automatically when the match ends. Zero flaking. Zero house edge.
+    </p>
+    <div class="hero-buttons">
+      <a href="https://t.me/sideupbot" class="btn-primary" target="_blank" rel="noopener">
+        ✈ Open @sideupbot
+      </a>
+      <a href="#how-it-works" class="btn-secondary">
+        See how it works ↓
+      </a>
     </div>
-    <div class="chat-messages">
-      <div class="msg">
-        <div class="msg-match">⚽ Arsenal vs Man City</div>
-        <div class="msg-sub">Premier League · Sat 15:00</div>
-        <div>Pick your side:</div>
-        <div class="side-btns" style="margin-top:8px">
-          <div class="side-btn green">🔴 Arsenal</div>
-          <div class="side-btn">Draw</div>
-          <div class="side-btn">🔵 Man City</div>
+
+    <!-- Bot Preview Mock -->
+    <div class="bot-preview">
+      <div class="bot-header">
+        <div class="bot-avatar">S</div>
+        <div>
+          <div class="bot-name">@sideupbot</div>
+          <div class="bot-status">● online</div>
         </div>
       </div>
-      <div class="msg" style="font-size:0.82rem; color:var(--text-muted)">
-        Arsenal, <strong style="color:var(--text)">⭐ 500 Stars</strong>
-        <div class="link-preview">Share: t.me/sideupbot?start=ref_8f2a</div>
-      </div>
-      <div class="msg msg-locked">🔒 Stakes locked in escrow. Match starts in 12 min.</div>
-      <div class="msg msg-win">🏆 You won! ⭐ 980 Stars sent to your account.<br><span style="font-size:0.78rem;opacity:0.8">FT: Arsenal 2–1 Man City</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat"><div class="stat-value">0%</div><div class="stat-label">commission at launch</div></div>
-  <div class="stat"><div class="stat-value">P2P</div><div class="stat-label">no house, pure escrow</div></div>
-  <div class="stat"><div class="stat-value">Auto</div><div class="stat-label">result verification</div></div>
-  <div class="stat"><div class="stat-value">Inside Telegram</div><div class="stat-label">no app download needed</div></div>
-</div>
-
-<!-- HOW IT WORKS -->
-<section id="how-it-works">
-  <span class="section-tag">How it works</span>
-  <h2>Three steps.<br>No friction.</h2>
-  <p class="section-sub">Challenge creation to automatic payout — all inside Telegram.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Pick your side</h3>
-      <p>Open @sideupbot, choose a live match — Premier League, NBA, Champions League — and pick Home, Draw, or Away.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>Lock stakes in escrow</h3>
-      <p>Set your amount in Telegram Stars. Share your invite link. Your friend accepts the opposite side — both stakes are locked. No one can back out.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>Winner gets paid</h3>
-      <p>The moment the final whistle blows, SideUp confirms the result via live sports data and sends the full pot to the winner automatically. No disputes.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SPORTS CALENDAR -->
-<section>
-  <span class="section-tag">Supported sports</span>
-  <h2>Big matches.<br>Bigger bragging rights.</h2>
-  <p class="section-sub">Live challenges across the world's most-argued-about sports — with more leagues added every week.</p>
-  <div class="sports-grid">
-    <div class="sport-card">
-      <div class="sport-emoji">⚽</div>
-      <div>
-        <div class="sport-name">Football</div>
-        <div class="sport-leagues">Premier League · Champions League · World Cup · Serie A · Bundesliga</div>
-        <span class="sport-badge">LIVE</span>
-      </div>
-    </div>
-    <div class="sport-card">
-      <div class="sport-emoji">🏀</div>
-      <div>
-        <div class="sport-name">Basketball</div>
-        <div class="sport-leagues">NBA · NBA Finals · EuroLeague · FIBA World Cup</div>
-        <span class="sport-badge">LIVE</span>
-      </div>
-    </div>
-    <div class="sport-card">
-      <div class="sport-emoji">🏆</div>
-      <div>
-        <div class="sport-name">More coming</div>
-        <div class="sport-leagues">Tennis · Ice Hockey · MMA · Cricket · F1 — vote for your league below</div>
-        <span class="sport-badge soon">SOON</span>
+      <div class="bot-messages">
+        <div class="msg-bot">⚽ <strong>Arsenal vs Man City</strong><br>Premier League · Sat 15:00<br><br>Pick your side:<br>🔴 Arsenal &nbsp;&nbsp; Draw &nbsp;&nbsp; 🔵 Man City</div>
+        <div class="msg-user">Arsenal, ⭐ 500 Stars</div>
+        <div class="msg-system">🔒 Stakes locked in escrow.<br>Share your invite link:<br><strong>t.me/sideupbot?start=ref_8f2a</strong></div>
+        <div class="msg-bot">🏆 <strong>You won! ⭐ 980 Stars</strong> sent to your account.<br><small>FT: Arsenal 2–1 Man City</small></div>
       </div>
     </div>
   </div>
 
-  <!-- Upcoming events -->
-  <div style="margin-top: 40px;">
-    <p style="font-size:0.82rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; font-weight:700;">🔥 Hot upcoming challenges</p>
-    <div class="events-grid">
-      <div class="event-card featured">
-        <div class="event-label">⚽ Football</div>
-        <div class="event-name">Champions League Final</div>
-        <div class="event-date">May 30, 2025 · 20:00 CET</div>
-        <a class="event-cta" href="https://t.me/sideupbot">Challenge now →</a>
+  <!-- STATS BAR -->
+  <div style="max-width:900px; margin:0 auto; padding: 0 24px;">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number">0%</div>
+        <div class="stat-label">Commission at launch</div>
       </div>
-      <div class="event-card">
-        <div class="event-label">🏀 Basketball</div>
-        <div class="event-name">NBA Finals Game 1</div>
-        <div class="event-date">June 2025 · TBD</div>
-        <a class="event-cta" href="https://t.me/sideupbot">Challenge now →</a>
+      <div class="stat-item">
+        <div class="stat-number">P2P</div>
+        <div class="stat-label">No house, pure escrow</div>
       </div>
-      <div class="event-card">
-        <div class="event-label">🏆 Football</div>
-        <div class="event-name">FIFA World Cup 2026</div>
-        <div class="event-date">Summer 2026 · Be ready</div>
-        <span style="color:var(--text-muted); font-size:0.85rem;">Coming soon</span>
+      <div class="stat-item">
+        <div class="stat-number">Auto</div>
+        <div class="stat-label">Result verification</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">⭐</div>
+        <div class="stat-label">Telegram Stars</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ESCROW EXPLAINER -->
-<section>
-  <div class="escrow-section">
-    <span class="section-tag">Why it works</span>
-    <h2>No house edge.<br>No bookmaker.<br>Just escrow.</h2>
-    <p style="color:var(--text-muted); max-width:580px; margin-top:12px;">SideUp is a technology platform, not a gambling operator. We hold your stakes — like PayPal holds a payment — and release them automatically when a public sports result is confirmed. We don't set odds. We don't take a position. We don't profit if you lose.</p>
-    <p style="color:var(--text-muted); max-width:580px; margin-top:12px;">Think of it as Venmo for friend challenges: two people, equal stakes, automatic settlement. The result comes from a neutral third-party sports API — not us.</p>
-    <div class="escrow-points">
-      <div class="escrow-point">
-        <div style="font-size:1.5rem; margin-bottom:8px;">🔒</div>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="section-label">How it works</div>
+    <h2>Three steps.<br><em>No friction.</em></h2>
+    <p class="section-sub">From challenge to payout in minutes. No apps, no wallets, no friction — just Telegram.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Pick your side</h3>
+        <p>Open @sideupbot, choose a live match — Premier League, NBA, Champions League — and pick Home, Draw, or Away. Takes 30 seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Lock stakes in escrow</h3>
+        <p>Set your amount in Telegram Stars. Share your invite link. Your friend accepts the opposite side — both stakes are locked. No one can back out.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Winner gets paid</h3>
+        <p>The moment the final whistle blows, SideUp confirms the result via live sports data and sends the full pot to the winner automatically. No disputes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" style="padding-top:0;">
+    <div class="section-label">Why SideUp</div>
+    <h2>No house edge.<br><em>No bookmaker.</em><br>Just escrow.</h2>
+    <p class="section-sub">SideUp is a technology platform, not a gambling operator. We hold stakes — like PayPal holds a payment — and release them automatically when a public sports result is confirmed.</p>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
         <h3>Funds locked at accept</h3>
         <p>Both parties lock stakes before the match starts. Nobody can back out once the game is live.</p>
       </div>
-      <div class="escrow-point">
-        <div style="font-size:1.5rem; margin-bottom:8px;">⚡</div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
         <h3>Instant auto-payout</h3>
         <p>Results are pulled from live football-data.org and balldontlie.io APIs. No manual review. No delays. No disputes.</p>
       </div>
-      <div class="escrow-point">
-        <div style="font-size:1.5rem; margin-bottom:8px;">⭐</div>
+      <div class="feature">
+        <div class="feature-icon">⭐</div>
         <h3>Telegram Stars only</h3>
-        <p>No credit cards. No crypto wallets. No KYC friction. SideUp uses Telegram's native payment layer — already on your phone.</p>
+        <p>No credit cards, no crypto wallets, no KYC friction. SideUp uses Telegram's native payment layer — already on your phone.</p>
       </div>
-      <div class="escrow-point">
-        <div style="font-size:1.5rem; margin-bottom:8px;">👥</div>
-        <h3>Two modes: private or open</h3>
-        <p>Challenge a specific friend with a private link, or post to The Market — an open list where anyone can accept.</p>
+      <div class="feature">
+        <div class="feature-icon">👥</div>
+        <h3>Two modes</h3>
+        <p>Challenge a specific friend with a private link, or post to The Market — an open list where anyone in the community can accept.</p>
       </div>
     </div>
+  </section>
+
+  <!-- SPORTS -->
+  <section id="sports">
+    <div class="section-label">Supported sports</div>
+    <h2>Big matches.<br><em>Bigger bragging rights.</em></h2>
+    <p class="section-sub">Live challenges across the world's most-argued-about sports — with more leagues added every week.</p>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <div class="sport-emoji">⚽</div>
+        <h3>Football</h3>
+        <p>Premier League · Champions League · World Cup · Serie A · Bundesliga</p>
+        <span class="sport-badge">LIVE</span>
+      </div>
+      <div class="sport-card">
+        <div class="sport-emoji">🏀</div>
+        <h3>Basketball</h3>
+        <p>NBA · NBA Finals · EuroLeague · FIBA World Cup</p>
+        <span class="sport-badge">LIVE</span>
+      </div>
+      <div class="sport-card">
+        <div class="sport-emoji">🏆</div>
+        <h3>More coming</h3>
+        <p>Tennis · Ice Hockey · MMA · Cricket · F1 — vote for your league below</p>
+        <span class="sport-badge soon">SOON</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" style="padding-top:0;">
+    <div class="section-label">Upcoming events</div>
+    <h2>🔥 Hot upcoming challenges</h2>
+    <div class="events">
+      <div class="event">
+        <div class="event-info">
+          <div class="event-emoji">⚽</div>
+          <div>
+            <div class="event-name">Champions League Final</div>
+            <div class="event-date">May 30, 2025 · 20:00 CET</div>
+          </div>
+        </div>
+        <a href="https://t.me/sideupbot" class="event-cta" target="_blank" rel="noopener">Challenge now →</a>
+      </div>
+      <div class="event">
+        <div class="event-info">
+          <div class="event-emoji">🏀</div>
+          <div>
+            <div class="event-name">NBA Finals Game 1</div>
+            <div class="event-date">June 2025 · TBD</div>
+          </div>
+        </div>
+        <a href="https://t.me/sideupbot" class="event-cta" target="_blank" rel="noopener">Challenge now →</a>
+      </div>
+      <div class="event">
+        <div class="event-info">
+          <div class="event-emoji">🏆</div>
+          <div>
+            <div class="event-name">FIFA World Cup 2026</div>
+            <div class="event-date">Summer 2026 · Be ready</div>
+          </div>
+        </div>
+        <span class="event-cta soon">Coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / ESCROW -->
+  <section id="trust">
+    <div class="section-label">How we protect you</div>
+    <h2>We are the<br><em>escrow layer.</em><br>Not the house.</h2>
+    <p class="section-sub">Think of SideUp as Venmo for friend challenges: two people, equal stakes, automatic settlement. The result comes from a neutral third-party sports API — not us.</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🔐</div>
+        <h3>Non-custodial escrow</h3>
+        <p>Stakes are locked via Telegram's native payment system. SideUp cannot unilaterally take or redirect funds.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📡</div>
+        <h3>Third-party result data</h3>
+        <p>Match results come from football-data.org and balldontlie.io — public, neutral APIs. Not our opinion.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">↩️</div>
+        <h3>Full refund on postponement</h3>
+        <p>If a match is officially postponed or cancelled, both stakes are returned in full. No fee. No fuss.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📋</div>
+        <h3>Technology, not gambling</h3>
+        <p>SideUp is a technology escrow service. We don't set odds, take positions, or profit from your losses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-label">FAQ</div>
+    <h2>Real questions.<br><em>Straight answers.</em></h2>
+    <div class="faq">
+      <details>
+        <summary>Is this gambling? Am I breaking the law?</summary>
+        <div class="faq-body">
+          <strong>No.</strong> SideUp is an escrow technology platform — not a gambling operator. We don't set odds, take positions, or profit from your losses. Two individuals agree to a challenge, lock equal funds, and the winner is determined by a publicly verifiable sports result. SideUp is the technical intermediary, like PayPal processing a payment between friends. You are responsible for compliance with your local laws. SideUp does not operate as a gambling service in any jurisdiction.
+        </div>
+      </details>
+      <details>
+        <summary>What are Telegram Stars?</summary>
+        <div class="faq-body">
+          Telegram Stars (XTR) is Telegram's native in-app currency — you can buy them with a regular credit or debit card inside the Telegram app. No crypto wallet, no sign-up beyond Telegram. Think of them like app store credits. When you win, Stars are sent directly to your Telegram account.
+        </div>
+      </details>
+      <details>
+        <summary>What happens if the match is cancelled or postponed?</summary>
+        <div class="faq-body">
+          If a match is officially postponed or cancelled, both stakes are returned in full to each participant. No fee. No fuss. The escrow only releases when a confirmed final result exists.
+        </div>
+      </details>
+      <details>
+        <summary>Does SideUp take a cut?</summary>
+        <div class="faq-body">
+          At launch: <strong>0% commission</strong>. Every challenge is completely free. Once we scale, challenges above $50 value will carry a 2% platform fee — still less than anything you'd pay anywhere else. Free challenges remain free forever for small amounts.
+        </div>
+      </details>
+      <details>
+        <summary>Can I challenge a stranger?</summary>
+        <div class="faq-body">
+          Yes — via <strong>The Market</strong>. Post your open challenge and anyone in the SideUp community can accept the opposite side. Great for when your friends won't pick the wrong team.
+        </div>
+      </details>
+      <details>
+        <summary>Do I need to download anything?</summary>
+        <div class="faq-body">
+          No. SideUp is a Telegram bot. If you have Telegram (and you do), you're ready. Just open <strong>@sideupbot</strong> and start challenging.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- EMAIL CAPTURE -->
+  <div style="max-width:1100px; margin:0 auto; padding:0 0 100px;">
+    <div class="email-section">
+      <div class="section-label">Get early access</div>
+      <h2 style="margin-bottom:16px;">Be first to challenge<br>when your <em>league launches</em></h2>
+      <p style="color:var(--muted); font-size:17px;">Drop your email — we'll notify you when your sport goes live. No spam. Ever.</p>
+      <form class="email-form" id="signup-form">
+        <input type="email" id="email-input" placeholder="your@email.com" required />
+        <button type="submit">Notify me →</button>
+      </form>
+      <p id="form-msg" style="margin-top:16px; color:var(--green); display:none; font-size:14px;">✓ You're on the list!</p>
+    </div>
   </div>
-</section>
 
-<!-- FAQ -->
-<section>
-  <span class="section-tag">FAQ</span>
-  <h2>Real questions.<br>Straight answers.</h2>
-  <p class="section-sub">The stuff you're actually wondering about.</p>
-  <div class="faq-list">
-    <details>
-      <summary>Is this gambling? Am I breaking the law?</summary>
-      <div class="faq-body"><strong>No.</strong> SideUp is an escrow technology platform — not a gambling operator. We don't set odds, take positions, or profit from your losses. Two individuals agree to a challenge, lock equal funds, and the winner is determined by a publicly verifiable sports result. SideUp is the technical intermediary, like PayPal processing a payment between friends. You are responsible for compliance with your local laws. SideUp does not operate as a gambling service in any jurisdiction.</div>
-    </details>
-    <details>
-      <summary>What are Telegram Stars?</summary>
-      <div class="faq-body">Telegram Stars (XTR) is Telegram's native in-app currency — you can buy them with a regular credit or debit card inside the Telegram app. No crypto wallet, no sign-up beyond Telegram. Think of them like app store credits. When you win, Stars are sent directly to your Telegram account.</div>
-    </details>
-    <details>
-      <summary>What happens if the match is cancelled or postponed?</summary>
-      <div class="faq-body">If a match is officially postponed or cancelled, both stakes are returned in full to each participant. No fee. No fuss. The escrow only releases when a confirmed final result exists.</div>
-    </details>
-    <details>
-      <summary>Does SideUp take a cut?</summary>
-      <div class="faq-body">At launch: <strong>0% commission</strong>. Every challenge is completely free. Once we scale, challenges above a threshold will carry a small 2% platform fee — still less than anything you'd pay anywhere else. Free challenges remain free forever for small amounts.</div>
-    </details>
-    <details>
-      <summary>Can I challenge a stranger?</summary>
-      <div class="faq-body">Yes — via The Market. Post your open challenge and anyone in the SideUp community can accept the opposite side. Great for when your friends won't pick the wrong team.</div>
-    </details>
-    <details>
-      <summary>Do I need to download anything?</summary>
-      <div class="faq-body">No. SideUp is a Telegram bot. If you have Telegram (and you do), you're ready. Just open @sideupbot and start challenging.</div>
-    </details>
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-tagline">No house.<br>Just you<br>and them.</div>
+    <p class="cta-sub">Stop letting your friends dodge their debt. SideUp makes them put their Stars where their mouth is.</p>
+    <a href="https://t.me/sideupbot" class="btn-primary" target="_blank" rel="noopener" style="font-size:18px; padding:18px 40px;">
+      ✈ Open @sideupbot
+    </a>
   </div>
-</section>
 
-<!-- CTA SECTION -->
-<div class="cta-section">
-  <h2>No house.<br>Just you<br>and them.</h2>
-  <p>Stop letting your friends dodge the payout. Challenge them on Telegram right now — it's free, it's instant, and the bot doesn't forget.</p>
-  <a class="btn-primary" href="https://t.me/sideupbot" style="display:inline-flex; font-size:1.1rem; padding:18px 40px;">
-    ⚡ Open @sideupbot on Telegram
-  </a>
-  <p class="cta-sub">Free to start. No download. No credit card.</p>
-</div>
+  <!-- FOOTER -->
+  
 
-<!-- EMAIL CAPTURE -->
-<div class="email-section">
-  <h3>Get the launch alert</h3>
-  <p>We'll tell you when your favourite league goes live.</p>
-  <div class="email-form">
-    <input class="email-input" type="email" placeholder="your@email.com" />
-    <button class="email-btn">Notify me</button>
-  </div>
-</div>
-
-<!-- FOOTER -->
+  <script>
+    // Email form handler
+    const form = document.getElementById('signup-form');
+    const msg = document.getElementById('form-msg');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email-input').value;
+        try {
+          const token = document.querySelector('meta[name="subscribe-token"]')?.content || '';
+          await fetch('/api/v1/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, source: 'landing-page', token })
+          });
+        } catch(err) {}
+        msg.style.display = 'block';
+        form.style.display = 'none';
+      });
+    }
+  </script>
 </Base>
