@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = "SIDES — No house. Just you and them.",
-  description = "SIDES is a peer-to-peer sports challenge platform built inside Telegram. Challenge friends on match outcomes, lock equal stakes in escrow via Telegram Stars, and the winner is paid automatically. No bookmaker. No flaking. Zero house edge."
+  title = "SideUp — Challenge friends on sports. Escrow inside Telegram.",
+  description = "SideUp is a peer-to-peer sports challenge platform inside Telegram. Pick a side, lock equal stakes via Telegram Stars, and the winner is paid automatically. No bookmaker. No flaking. Zero house edge."
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -19,8 +19,8 @@ const siteUrl = Astro.site?.href ?? '';
 const orgSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "SIDES",
-  "description": "Peer-to-peer sports challenge platform inside Telegram. Lock stakes in escrow, winner paid automatically. No bookmaker.",
+  "name": "SideUp",
+  "description": "Peer-to-peer sports challenge platform inside Telegram. Lock stakes in escrow via Telegram Stars, winner paid automatically.",
   "url": siteUrl,
 }).replace(/</g, '\\u003c');
 ---
@@ -43,9 +43,9 @@ const orgSchema = JSON.stringify({
     <title>{title}</title>
     <script type="application/ld+json" set:html={orgSchema}></script>
   </head>
-  <body class="min-h-screen flex flex-col font-body antialiased" style="background-color:oklch(0.09 0.006 145);color:oklch(0.96 0.005 145);">
+  <body style="margin:0;padding:0;background:oklch(0.09 0.006 145);color:oklch(0.96 0.005 145);min-height:100vh;display:flex;flex-direction:column;font-family:'Barlow',ui-sans-serif,sans-serif;-webkit-font-smoothing:antialiased;">
     <Header />
-    <main class="flex-1">
+    <main style="flex:1;">
       <slot />
     </main>
     <Footer />
