@@ -1,0 +1,113 @@
+# Your New Business
+
+> URL: https://sporim-sides.onrender.com
+
+> I want to build SPORIM (Russian market, @sporimbot) and SIDES (English market, @sidesbot) — a peer-to-peer sports challenge platform inside Telegram. Think "Venmo for bets between friends" but we are NOT a bookmaker — we are an escrow technology platform.
+
+THE PROBLEM
+People constantly challenge each other on sports in chats: "I bet Arsenal wins", "wanna bet $50?", "if my team loses I pay for dinner". But these challenges are rarely paid out — someone forgets, someone dodges, nobody tracks it. We turn a conversational habit into a product.
+
+THE SOLUTION
+A Telegram bot where:
+1. User picks a sports match (Premier League, NBA, World Cup), picks a side (Home / Draw / Away), and enters an amount in Telegram Stars
+2. Bot generates an invite link (t.me/sporimbot?start=ref_123)
+3. Friend clicks the link, accepts the challenge, both lock equal amount — bot holds funds (escrow)
+4. After the match ends, bot checks the result via sports API and automatically sends the full pot to the winner minus 2% platform fee
+
+Two modes:
+- "Challenge a Friend" — private invite link for a specific person
+- "The Market" — open list of unaccepted challenges, anyone can accept
+
+WHY NOW
+- May 30, 2025: Champions League Final — perfect viral launch event
+- June 2025: NBA Finals
+- Summer 2026: FIFA World Cup — millions of casual fans will want to challenge friends
+
+THE BRAND
+- RU/CIS: SPORIM (@sporimbot). "Sporim na sotku?" is already a meme in Russian chats — the name IS the call to action
+- Global: SIDES (@sidesbot). "Pick a side." No taboo words (bet/wager/gamble). Clean for regulators and ad networks
+
+POSITIONING
+We are NOT gambling. We are a social escrow platform — like PayPal for friend challenges. We don't take bets, don't set odds, don't take risk. We hold funds between two private individuals and automate the transfer when a public sports result is confirmed.
+
+REVENUE MODEL
+Phase 1 (0-1000 users): 0% commission. Every free challenge is viral marketing.
+Phase 2:
+- Challenges above $50: 2% of pot
+- Premium subscription ($4.99/mo): stats, rankings, tournament brackets
+- White-label for Telegram sports channels: they get their own branded bot, earn 50% of commission
+- Group challenges: entry-fee tournaments, bot takes 5%
+
+COMPETITIVE GAP
+Polymarket/Kalshi = for traders, not friends. WagerLab = separate app, virtual currency only. BetOpenly = web only, no Telegram. Predo Bot = blockchain/Solana, too complex. NO ONE does P2P sports challenges INSIDE Telegram with real money WITHOUT crypto.
+
+WHAT I NEED FROM WILLO
+
+1. BRAND & IDENTITY
+   - Logo for SPORIM (sporty, bold, Russian-friendly)
+   - Logo for SIDES (clean, international, tech-feel)
+   - Color palette, typography, brand guidelines
+   - Tagline ideas ("No house. Just you and them.")
+
+2. LANDING PAGE
+   - sporim.io (or similar) — hero section, how it works, sports supported, CTA to open Telegram bot
+   - Mobile-first design (most traffic from Telegram)
+   - Sections: Hero → How It Works → Sports Calendar → Trust/Escrow Explainer → FAQ → Footer
+   - FAQ must address "Is this gambling?" — answer: no, we are technology escrow
+
+3. GITHUB REPOSITORY
+   - Python project structure for Telegram bot
+   - Using python-telegram-bot v20 framework
+   - Clean architecture: handlers/ (Telegram code), services/ (business logic), models.py (SQLAlchemy ORM), config.py
+   - README with setup instructions
+   - Placeholder for football-data.org API integration
+   - Placeholder for Telegram Stars payment flow
+
+4. ROADMAP
+   - V1 (by May 23): MVP with Premier League, challenge creation, invite links, escrow, manual admin resolution, 0% commission
+   - V1.1 (May 28): Auto-resolution via API, result share card
+   - V1.2 (June): NBA support added
+   - V2 (Summer 2026): World Cup, all leagues, white-label, commission enabled
+
+5. ANALYTICS SETUP
+   - Google Analytics or Plausible
+   - Conversion funnel: Landing → Bot Open → Challenge Created → Challenge Accepted → Payment Deposited
+
+6. EMAIL CAPTURE
+   - Waitlist/early access form on landing page
+   - Email for sports fans who want to know when we launch their favorite league
+
+7. MARKETING ASSETS
+   - 5 tweet/thread templates for launch
+   - 3 Reddit post templates (r/soccer, r/NBA, r/startups)
+   - Pitch text for Telegram sports channel admins (outreach template requesting they try the bot)
+
+SPORTS API TO USE
+- football-data.org (free tier) — Premier League, World Cup
+- balldontlie.io (free) — NBA
+
+TECH STACK
+- Python 3.12 + python-telegram-bot v20
+- SQLite + SQLAlchemy ORM (upgrade path to PostgreSQL)
+- Telegram Stars (XTR) for payments
+- Hosting: Railway or Replit
+
+LEGAL POSITIONING
+We use "challenge" not "bet". We use "escrow service" not "gambling platform". We process no fiat directly — only Telegram Stars. Terms of Service must state: "Users are responsible for compliance with local laws. Platform is a technology service provider, not a gambling operator."
+
+HARD DEADLINE: Working MVP by May 23, 2025. Viral launch on Champions League Final (May 30).
+
+## About
+
+Your New Business is an AI-powered business. This file provides a brief overview for
+language model crawlers and AI assistants.
+
+## Pages
+
+- /: Home — learn about Your New Business and get started
+- /blog: Blog — articles, updates, and insights
+- /blog/[slug]: Individual blog posts
+
+## Contact
+
+For inquiries, please visit our website.

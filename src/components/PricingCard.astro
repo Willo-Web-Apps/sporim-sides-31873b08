@@ -1,0 +1,66 @@
+---
+interface Props {
+  name: string;
+  description?: string;
+  price: string;
+  interval?: string;
+  features?: string[];
+  checkoutUrl: string;
+  highlight?: boolean;
+}
+
+const {
+  name,
+  description = "",
+  price,
+  interval = "",
+  features = [],
+  checkoutUrl,
+  highlight = false,
+} = Astro.props;
+---
+<div class:list={[
+  "rounded-2xl border p-8 flex flex-col",
+  highlight
+    ? "border-brand-500 ring-2 ring-brand-500/20 bg-white shadow-lg"
+    : "border-surface-200 bg-white",
+]}>
+  {highlight && (
+    <span class="inline-block self-start px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-600 bg-brand-50 rounded-full mb-4">
+      Most Popular
+    </span>
+  )}
+  <h3 class="text-xl font-bold text-surface-900 font-display">{name}</h3>
+  {description && (
+    <p class="mt-2 text-surface-800/60 text-sm leading-relaxed">{description}</p>
+  )}
+  <div class="mt-6 flex items-baseline gap-1">
+    <span class="text-4xl font-extrabold text-surface-900 font-display">{price}</span>
+    {interval && (
+      <span class="text-surface-800/50 text-sm">/{interval}</span>
+    )}
+  </div>
+  {features.length > 0 && (
+    <ul class="mt-6 space-y-3 flex-1">
+      {features.map((feature) => (
+        <li class="flex items-start gap-2 text-sm text-surface-800/70">
+          <svg class="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+          <span>{feature}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  <a
+    href={checkoutUrl}
+    class:list={[
+      "mt-8 block text-center px-6 py-3 rounded-lg font-semibold transition-colors text-base",
+      highlight
+        ? "bg-brand-500 text-white hover:bg-brand-600"
+        : "bg-surface-100 text-surface-900 hover:bg-surface-200",
+    ]}
+  >
+    Get Started
+  </a>
+</div>
