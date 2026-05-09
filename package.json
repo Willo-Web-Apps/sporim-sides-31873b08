@@ -1,0 +1,9 @@
+{
+  "name": "sideup-bot",
+  "version": "1.0.0",
+  "description": "SideUp — P2P sports challenge bot for Telegram (@sideupbot)",
+  "scripts": {
+    "build": "echo 'Python project — no build step required'"
+  },
+  "private": true
+}
