@@ -1,637 +1,231 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
-<Base
-  title="SIDES — No house. Just you and them."
-  description="SIDES is a peer-to-peer sports challenge platform built inside Telegram. Challenge friends on match outcomes, lock stakes in escrow, win automatically. No bookmaker. No flaking."
->
+<Base title='SideUp — Landing Page'>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Side<span>Up</span></div>
+  <a class="nav-cta" href="https://t.me/sideupbot">Open @sideupbot</a>
+</nav>
 
-  <!-- =====================================================================
-       HERO
-       ===================================================================== -->
-  <section class="relative min-h-screen flex items-center overflow-hidden noise-overlay" style="background-color: oklch(0.09 0.006 145);">
+<!-- HERO -->
+<div class="hero">
+  <div class="live-badge">
+    <span class="live-dot"></span>
+    Live now on Telegram
+  </div>
+  <h1>Your friend<br>talks big.<br><em>Make them prove it.</em></h1>
+  <p>SideUp locks your sports challenge in escrow inside Telegram — winner gets paid automatically when the match ends. Zero flaking. Zero house edge.</p>
+  <div class="hero-buttons">
+    <a class="btn-primary" href="https://t.me/sideupbot">⚡ Open @sideupbot</a>
+    <a class="btn-secondary" href="#how-it-works">See how it works</a>
+  </div>
 
-    <!-- Layered gradient background — scoreboard floodlights -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <!-- Green glow — top-left primary light source -->
-      <div class="animate-orb-float" style="
-        position: absolute;
-        top: -15%;
-        left: -10%;
-        width: 70vw;
-        height: 70vw;
-        max-width: 800px;
-        max-height: 800px;
-        background: radial-gradient(ellipse at 30% 30%, oklch(0.72 0.22 145 / 0.22) 0%, transparent 65%);
-        filter: blur(1px);
-      "></div>
-      <!-- Orange ember — bottom-right secondary -->
-      <div style="
-        position: absolute;
-        bottom: -10%;
-        right: -5%;
-        width: 50vw;
-        height: 50vw;
-        max-width: 600px;
-        max-height: 600px;
-        background: radial-gradient(ellipse at 70% 70%, oklch(0.64 0.22 32 / 0.16) 0%, transparent 60%);
-        filter: blur(2px);
-      "></div>
-      <!-- Subtle top-right green edge -->
-      <div style="
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 35vw;
-        height: 40vh;
-        background: radial-gradient(ellipse at 90% 10%, oklch(0.72 0.22 145 / 0.09) 0%, transparent 70%);
-      "></div>
-      <!-- Bottom fade to next section -->
-      <div style="
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 180px;
-        background: linear-gradient(to bottom, transparent, oklch(0.09 0.006 145));
-      "></div>
+  <!-- Bot preview card -->
+  <div class="bot-preview">
+    <div class="bot-header">
+      <div class="bot-avatar">S</div>
+      <div>
+        <div class="bot-name">SideUp</div>
+        <div class="bot-handle">@sideupbot</div>
+      </div>
+      <div class="online-dot"></div>
     </div>
-
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-        <!-- Left: Copy -->
-        <div>
-          <!-- Badge -->
-          <div class="animate-slide-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-6" style="background-color: oklch(0.72 0.22 145 / 0.12); color: oklch(0.72 0.22 145); border: 1px solid oklch(0.72 0.22 145 / 0.25);">
-            <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.72 0.22 145);display:inline-block;"></span>
-            Live now on Telegram
-          </div>
-
-          <!-- Headline -->
-          <h1 class="animate-slide-up delay-100 font-display leading-[0.95] tracking-tight" style="font-size: clamp(2.8rem, 7vw, 5.5rem); color: oklch(0.96 0.005 145);">
-            Your friend<br />
-            talks big.<br />
-            <span class="text-gradient-green">Make them<br />prove it.</span>
-          </h1>
-
-          <!-- Subheadline -->
-          <p class="animate-slide-up delay-200 mt-6 text-lg leading-relaxed" style="color: oklch(0.65 0.010 145); max-width: 480px;">
-            SIDES locks your sports challenge in escrow inside Telegram — winner gets paid automatically when the match ends. Zero flaking. Zero house edge.
-          </p>
-
-          <!-- CTAs -->
-          <div class="animate-slide-up delay-300 mt-8 flex flex-wrap gap-3 items-center">
-            <a href="https://t.me/sidesbot" class="btn-primary animate-pulse-glow">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.44.7-.9.44l-2.46-1.82-1.18 1.14c-.13.13-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.76 14.16 6.34 13.4c-.54-.17-.56-.54.12-.8l8.92-3.44c.44-.16.82.1.26.64z"/></svg>
-              Open @sidesbot
-            </a>
-            <a href="#how-it-works" class="btn-ghost">See how it works</a>
-          </div>
-
-          <!-- Micro social proof -->
-          <div class="animate-slide-up delay-400 mt-8 flex items-center gap-5">
-            <div class="flex -space-x-2">
-              <div style="width:32px;height:32px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.3);border:2px solid oklch(0.09 0.006 145);display:flex;align-items:center;justify-content:center;font-size:14px;">⚽</div>
-              <div style="width:32px;height:32px;border-radius:50%;background:oklch(0.64 0.22 32 / 0.3);border:2px solid oklch(0.09 0.006 145);display:flex;align-items:center;justify-content:center;font-size:14px;">🏀</div>
-              <div style="width:32px;height:32px;border-radius:50%;background:oklch(0.55 0.15 280 / 0.3);border:2px solid oklch(0.09 0.006 145);display:flex;align-items:center;justify-content:center;font-size:14px;">🏆</div>
-            </div>
-            <p style="font-size:0.875rem;color:oklch(0.55 0.010 145);">
-              Premier League · NBA · Champions League · more coming
-            </p>
-          </div>
+    <div class="chat-messages">
+      <div class="msg">
+        <div class="msg-match">⚽ Arsenal vs Man City</div>
+        <div class="msg-sub">Premier League · Sat 15:00</div>
+        <div>Pick your side:</div>
+        <div class="side-btns" style="margin-top:8px">
+          <div class="side-btn green">🔴 Arsenal</div>
+          <div class="side-btn">Draw</div>
+          <div class="side-btn">🔵 Man City</div>
         </div>
+      </div>
+      <div class="msg" style="font-size:0.82rem; color:var(--text-muted)">
+        Arsenal, <strong style="color:var(--text)">⭐ 500 Stars</strong>
+        <div class="link-preview">Share: t.me/sideupbot?start=ref_8f2a</div>
+      </div>
+      <div class="msg msg-locked">🔒 Stakes locked in escrow. Match starts in 12 min.</div>
+      <div class="msg msg-win">🏆 You won! ⭐ 980 Stars sent to your account.<br><span style="font-size:0.78rem;opacity:0.8">FT: Arsenal 2–1 Man City</span></div>
+    </div>
+  </div>
+</div>
 
-        <!-- Right: Bot UI Mockup -->
-        <div class="animate-slide-up delay-200 relative flex justify-center lg:justify-end">
-          <div class="relative" style="width:100%;max-width:340px;">
-            <!-- Phone frame -->
-            <div style="
-              background: oklch(0.11 0.007 145);
-              border: 1.5px solid oklch(0.20 0.010 145);
-              border-radius: 24px;
-              padding: 16px;
-              box-shadow: 0 32px 80px oklch(0 0 0 / 0.5), 0 0 40px oklch(0.72 0.22 145 / 0.08);
-            ">
-              <!-- Chat header -->
-              <div style="display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid oklch(0.20 0.010 145);margin-bottom:12px;">
-                <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,oklch(0.72 0.22 145),oklch(0.60 0.20 145));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:oklch(0.09 0.006 145);font-family:'Archivo Black',sans-serif;">S</div>
-                <div>
-                  <div style="font-family:'Archivo Black',sans-serif;font-size:14px;color:oklch(0.96 0.005 145);">@sidesbot</div>
-                  <div style="font-size:11px;color:oklch(0.72 0.22 145);">● online</div>
-                </div>
-              </div>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-value">0%</div><div class="stat-label">commission at launch</div></div>
+  <div class="stat"><div class="stat-value">P2P</div><div class="stat-label">no house, pure escrow</div></div>
+  <div class="stat"><div class="stat-value">Auto</div><div class="stat-label">result verification</div></div>
+  <div class="stat"><div class="stat-value">Inside Telegram</div><div class="stat-label">no app download needed</div></div>
+</div>
 
-              <!-- Messages -->
-              <div style="display:flex;flex-direction:column;gap:10px;font-family:'Barlow',sans-serif;font-size:13px;">
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <span class="section-tag">How it works</span>
+  <h2>Three steps.<br>No friction.</h2>
+  <p class="section-sub">Challenge creation to automatic payout — all inside Telegram.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Pick your side</h3>
+      <p>Open @sideupbot, choose a live match — Premier League, NBA, Champions League — and pick Home, Draw, or Away.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Lock stakes in escrow</h3>
+      <p>Set your amount in Telegram Stars. Share your invite link. Your friend accepts the opposite side — both stakes are locked. No one can back out.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Winner gets paid</h3>
+      <p>The moment the final whistle blows, SideUp confirms the result via live sports data and sends the full pot to the winner automatically. No disputes.</p>
+    </div>
+  </div>
+</section>
 
-                <!-- Bot message -->
-                <div style="display:flex;gap:8px;align-items:flex-end;">
-                  <div style="width:26px;height:26px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">S</div>
-                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:220px;color:oklch(0.85 0.008 145);">
-                    ⚽ <strong style="color:oklch(0.96 0.005 145);">Arsenal vs Man City</strong><br/>
-                    <span style="color:oklch(0.55 0.010 145);font-size:12px;">Premier League · Sat 15:00</span><br/><br/>
-                    Pick your side:
-                  </div>
-                </div>
-
-                <!-- User choice buttons -->
-                <div style="display:flex;gap:6px;margin-left:34px;flex-wrap:wrap;">
-                  <div style="background:oklch(0.72 0.22 145 / 0.15);border:1.5px solid oklch(0.72 0.22 145 / 0.5);border-radius:8px;padding:6px 12px;font-size:12px;color:oklch(0.72 0.22 145);font-weight:600;">🔴 Arsenal</div>
-                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:8px;padding:6px 12px;font-size:12px;color:oklch(0.65 0.010 145);">Draw</div>
-                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:8px;padding:6px 12px;font-size:12px;color:oklch(0.65 0.010 145);">🔵 Man City</div>
-                </div>
-
-                <!-- User message -->
-                <div style="display:flex;justify-content:flex-end;">
-                  <div style="background:oklch(0.72 0.22 145 / 0.12);border:1px solid oklch(0.72 0.22 145 / 0.25);border-radius:16px 16px 4px 16px;padding:10px 14px;max-width:200px;color:oklch(0.85 0.008 145);">
-                    Arsenal, <strong style="color:oklch(0.72 0.22 145);">⭐ 500 Stars</strong>
-                  </div>
-                </div>
-
-                <!-- Bot confirms -->
-                <div style="display:flex;gap:8px;align-items:flex-end;">
-                  <div style="width:26px;height:26px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">S</div>
-                  <div style="background:oklch(0.14 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:220px;color:oklch(0.85 0.008 145);">
-                    🔒 Stakes locked in escrow.<br/>
-                    <span style="color:oklch(0.55 0.010 145);font-size:12px;">Share link to challenge a friend:</span><br/>
-                    <span style="color:oklch(0.72 0.22 145);font-size:12px;word-break:break-all;">t.me/sidesbot?start=ref_8f2a</span>
-                  </div>
-                </div>
-
-                <!-- Winner notification -->
-                <div style="display:flex;gap:8px;align-items:flex-end;">
-                  <div style="width:26px;height:26px;border-radius:50%;background:oklch(0.72 0.22 145 / 0.2);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">S</div>
-                  <div style="background:oklch(0.72 0.22 145 / 0.12);border:1.5px solid oklch(0.72 0.22 145 / 0.4);border-radius:16px 16px 16px 4px;padding:10px 14px;max-width:220px;">
-                    🏆 <strong style="color:oklch(0.72 0.22 145);">You won! ⭐ 980 Stars</strong> sent to your account.<br/>
-                    <span style="font-size:11px;color:oklch(0.55 0.010 145);">FT: Arsenal 2–1 Man City</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Floating stat pill -->
-            <div style="
-              position:absolute;
-              top:-16px;
-              right:-20px;
-              background:oklch(0.64 0.22 32);
-              color:#fff;
-              font-family:'Barlow',sans-serif;
-              font-weight:700;
-              font-size:12px;
-              padding:6px 12px;
-              border-radius:999px;
-              white-space:nowrap;
-              box-shadow:0 4px 20px oklch(0.64 0.22 32 / 0.4);
-            ">🔥 Challenge open</div>
-
-            <!-- Floating escrow pill -->
-            <div style="
-              position:absolute;
-              bottom:-14px;
-              left:-10px;
-              background:oklch(0.13 0.009 145);
-              border:1px solid oklch(0.72 0.22 145 / 0.3);
-              color:oklch(0.72 0.22 145);
-              font-family:'Barlow',sans-serif;
-              font-weight:600;
-              font-size:12px;
-              padding:6px 12px;
-              border-radius:999px;
-              white-space:nowrap;
-              box-shadow:0 4px 20px oklch(0 0 0 / 0.3);
-            ">🔒 Funds held in escrow</div>
-          </div>
-        </div>
-
+<!-- SPORTS CALENDAR -->
+<section>
+  <span class="section-tag">Supported sports</span>
+  <h2>Big matches.<br>Bigger bragging rights.</h2>
+  <p class="section-sub">Live challenges across the world's most-argued-about sports — with more leagues added every week.</p>
+  <div class="sports-grid">
+    <div class="sport-card">
+      <div class="sport-emoji">⚽</div>
+      <div>
+        <div class="sport-name">Football</div>
+        <div class="sport-leagues">Premier League · Champions League · World Cup · Serie A · Bundesliga</div>
+        <span class="sport-badge">LIVE</span>
       </div>
     </div>
-  </section>
-
-
-  <!-- =====================================================================
-       TRUST BAR — key stats
-       ===================================================================== -->
-  <section style="background-color:oklch(0.11 0.007 145);border-top:1px solid oklch(0.17 0.010 145);border-bottom:1px solid oklch(0.17 0.010 145);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div>
-          <div class="font-display text-3xl font-black text-brand" style="font-family:'Archivo Black',sans-serif;color:oklch(0.72 0.22 145);">0%</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">commission at launch</div>
-        </div>
-        <div>
-          <div class="font-display text-3xl font-black" style="font-family:'Archivo Black',sans-serif;color:oklch(0.96 0.005 145);">P2P</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">no house, pure escrow</div>
-        </div>
-        <div>
-          <div class="font-display text-3xl font-black" style="font-family:'Archivo Black',sans-serif;color:oklch(0.96 0.005 145);">Auto</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">result verification</div>
-        </div>
-        <div>
-          <div class="font-display text-3xl font-black" style="font-family:'Archivo Black',sans-serif;color:oklch(0.72 0.22 145);">Inside Telegram</div>
-          <div style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);">no app download needed</div>
-        </div>
+    <div class="sport-card">
+      <div class="sport-emoji">🏀</div>
+      <div>
+        <div class="sport-name">Basketball</div>
+        <div class="sport-leagues">NBA · NBA Finals · EuroLeague · FIBA World Cup</div>
+        <span class="sport-badge">LIVE</span>
       </div>
     </div>
-  </section>
-
-
-  <!-- =====================================================================
-       HOW IT WORKS
-       ===================================================================== -->
-  <section id="how-it-works" style="background-color:oklch(0.09 0.006 145);padding:6rem 0;">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <!-- Section header -->
-      <div class="text-center mb-16">
-        <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.72 0.22 145);margin-bottom:12px;">How it works</p>
-        <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,5vw,3.5rem);color:oklch(0.96 0.005 145);line-height:1.05;">
-          Three steps.<br />No friction.
-        </h2>
-      </div>
-
-      <!-- VS divider structure — the distinctive element -->
-      <div class="relative">
-
-        <!-- Step line connector (desktop) -->
-        <div class="hidden md:block absolute top-16 left-0 right-0 h-px" style="background: linear-gradient(to right, transparent 5%, oklch(0.20 0.010 145) 20%, oklch(0.20 0.010 145) 80%, transparent 95%);top:52px;z-index:0;"></div>
-
-        <div class="grid md:grid-cols-3 gap-8 relative z-10">
-
-          <!-- Step 1 -->
-          <div class="text-center">
-            <div style="
-              width:64px;height:64px;border-radius:50%;
-              background:linear-gradient(135deg,oklch(0.72 0.22 145 / 0.15),oklch(0.72 0.22 145 / 0.05));
-              border:1.5px solid oklch(0.72 0.22 145 / 0.4);
-              display:flex;align-items:center;justify-content:center;
-              margin:0 auto 24px;
-              font-family:'Archivo Black',sans-serif;font-size:24px;
-              color:oklch(0.72 0.22 145);
-            ">1</div>
-            <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.25rem;color:oklch(0.96 0.005 145);margin-bottom:10px;">Pick your side</h3>
-            <p style="font-family:'Barlow',sans-serif;font-size:15px;color:oklch(0.60 0.010 145);line-height:1.6;">
-              Open @sidesbot, choose a live match — Premier League, NBA, Champions League — and pick Home, Draw, or Away.
-            </p>
-          </div>
-
-          <!-- VS -->
-          <div class="text-center">
-            <div style="
-              width:64px;height:64px;border-radius:50%;
-              background:linear-gradient(135deg,oklch(0.64 0.22 32 / 0.15),oklch(0.64 0.22 32 / 0.05));
-              border:1.5px solid oklch(0.64 0.22 32 / 0.4);
-              display:flex;align-items:center;justify-content:center;
-              margin:0 auto 24px;
-              font-family:'Archivo Black',sans-serif;font-size:20px;
-              color:oklch(0.64 0.22 32);
-            ">2</div>
-            <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.25rem;color:oklch(0.96 0.005 145);margin-bottom:10px;">Lock stakes in escrow</h3>
-            <p style="font-family:'Barlow',sans-serif;font-size:15px;color:oklch(0.60 0.010 145);line-height:1.6;">
-              Set your amount in Telegram Stars. Share your invite link. Your friend accepts the opposite side — both stakes are locked. No one can back out.
-            </p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="text-center">
-            <div style="
-              width:64px;height:64px;border-radius:50%;
-              background:linear-gradient(135deg,oklch(0.72 0.22 145 / 0.15),oklch(0.72 0.22 145 / 0.05));
-              border:1.5px solid oklch(0.72 0.22 145 / 0.4);
-              display:flex;align-items:center;justify-content:center;
-              margin:0 auto 24px;
-              font-family:'Archivo Black',sans-serif;font-size:24px;
-              color:oklch(0.72 0.22 145);
-            ">3</div>
-            <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.25rem;color:oklch(0.96 0.005 145);margin-bottom:10px;">Winner gets paid</h3>
-            <p style="font-family:'Barlow',sans-serif;font-size:15px;color:oklch(0.60 0.010 145);line-height:1.6;">
-              The moment the final whistle blows, SIDES confirms the result via live sports data and sends the full pot to the winner automatically. No disputes.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Bold VS statement -->
-      <div class="mt-20 text-center relative">
-        <div style="
-          font-family:'Archivo Black',sans-serif;
-          font-size:clamp(6rem,20vw,14rem);
-          line-height:1;
-          background: linear-gradient(135deg, oklch(0.72 0.22 145 / 0.12), oklch(0.64 0.22 32 / 0.08));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          user-select:none;
-          letter-spacing:-0.04em;
-        ">VS</div>
-        <p style="margin-top:-2rem;font-family:'Barlow',sans-serif;font-size:18px;color:oklch(0.55 0.010 145);position:relative;z-index:2;">
-          Every challenge needs two sides. That's the whole point.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =====================================================================
-       SUPPORTED SPORTS + UPCOMING MATCHES
-       ===================================================================== -->
-  <section id="sports" style="background-color:oklch(0.11 0.007 145);padding:6rem 0;border-top:1px solid oklch(0.17 0.010 145);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="text-center mb-12">
-        <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.64 0.22 32);margin-bottom:12px;">Supported sports</p>
-        <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.75rem,4vw,3rem);color:oklch(0.96 0.005 145);line-height:1.1;">
-          Big matches. Bigger bragging rights.
-        </h2>
-        <p style="margin-top:16px;font-family:'Barlow',sans-serif;font-size:17px;color:oklch(0.60 0.010 145);max-width:520px;margin-left:auto;margin-right:auto;">
-          Live challenges across the world's most-argued-about sports — with more leagues added every week.
-        </p>
-      </div>
-
-      <!-- Sport cards -->
-      <div class="grid md:grid-cols-3 gap-5 mb-12">
-
-        <!-- Football -->
-        <div class="card-dark p-6" style="border:1px solid oklch(0.72 0.22 145 / 0.2);background:oklch(0.12 0.009 145);">
-          <div style="font-size:2.5rem;margin-bottom:12px;">⚽</div>
-          <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);margin-bottom:6px;">Football</h3>
-          <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);line-height:1.5;">Premier League · Champions League · World Cup qualifiers · Serie A · Bundesliga</p>
-          <div style="margin-top:12px;display:inline-block;background:oklch(0.72 0.22 145 / 0.1);color:oklch(0.72 0.22 145);font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid oklch(0.72 0.22 145 / 0.2);">LIVE</div>
-        </div>
-
-        <!-- Basketball -->
-        <div class="card-dark p-6" style="border:1px solid oklch(0.64 0.22 32 / 0.2);background:oklch(0.12 0.009 145);">
-          <div style="font-size:2.5rem;margin-bottom:12px;">🏀</div>
-          <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);margin-bottom:6px;">Basketball</h3>
-          <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);line-height:1.5;">NBA · NBA Finals · EuroLeague · FIBA World Cup</p>
-          <div style="margin-top:12px;display:inline-block;background:oklch(0.64 0.22 32 / 0.1);color:oklch(0.64 0.22 32);font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;border:1px solid oklch(0.64 0.22 32 / 0.2);">LIVE</div>
-        </div>
-
-        <!-- More coming -->
-        <div class="card-dark p-6" style="background:oklch(0.12 0.009 145);border-style:dashed;">
-          <div style="font-size:2.5rem;margin-bottom:12px;">🏆</div>
-          <h3 style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:oklch(0.96 0.005 145);margin-bottom:6px;">More coming</h3>
-          <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);line-height:1.5;">Tennis · Ice Hockey · MMA · Cricket · F1 — vote for your league below</p>
-          <div style="margin-top:12px;display:inline-block;background:oklch(0.20 0.010 145);color:oklch(0.65 0.010 145);font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;">SOON</div>
-        </div>
-      </div>
-
-      <!-- Upcoming match highlights -->
-      <div style="background:oklch(0.09 0.006 145);border:1px solid oklch(0.17 0.010 145);border-radius:12px;padding:24px;">
-        <div style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:oklch(0.55 0.010 145);margin-bottom:16px;">🔥 Hot upcoming challenges</div>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:oklch(0.13 0.009 145);border-radius:8px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-size:20px;">⚽</span>
-              <div>
-                <div style="font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;color:oklch(0.90 0.006 145);">Champions League Final</div>
-                <div style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.55 0.010 145);">May 30, 2025 · 20:00 CET</div>
-              </div>
-            </div>
-            <a href="https://t.me/sidesbot" style="background:oklch(0.72 0.22 145 / 0.15);color:oklch(0.72 0.22 145);font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;border:1px solid oklch(0.72 0.22 145 / 0.3);white-space:nowrap;">Challenge now →</a>
-          </div>
-
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:oklch(0.13 0.009 145);border-radius:8px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-size:20px;">🏀</span>
-              <div>
-                <div style="font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;color:oklch(0.90 0.006 145);">NBA Finals Game 1</div>
-                <div style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.55 0.010 145);">June 2025 · TBD</div>
-              </div>
-            </div>
-            <a href="https://t.me/sidesbot" style="background:oklch(0.64 0.22 32 / 0.12);color:oklch(0.64 0.22 32);font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;text-decoration:none;border:1px solid oklch(0.64 0.22 32 / 0.3);white-space:nowrap;">Challenge now →</a>
-          </div>
-
-          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:oklch(0.13 0.009 145);border-radius:8px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="display:flex;align-items:center;gap:12px;">
-              <span style="font-size:20px;">🏆</span>
-              <div>
-                <div style="font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;color:oklch(0.90 0.006 145);">FIFA World Cup 2026</div>
-                <div style="font-family:'Barlow',sans-serif;font-size:12px;color:oklch(0.55 0.010 145);">Summer 2026 · Be ready</div>
-              </div>
-            </div>
-            <div style="background:oklch(0.20 0.010 145);color:oklch(0.55 0.010 145);font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;padding:6px 14px;border-radius:6px;white-space:nowrap;">Coming soon</div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- =====================================================================
-       TRUST & ESCROW EXPLAINER — "Why not just" + safety
-       ===================================================================== -->
-  <section style="background-color:oklch(0.09 0.006 145);padding:6rem 0;">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-        <!-- Left: Explainer copy -->
-        <div>
-          <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.72 0.22 145);margin-bottom:12px;">Why it works</p>
-          <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.75rem,4vw,3rem);color:oklch(0.96 0.005 145);line-height:1.1;margin-bottom:20px;">
-            No house edge.<br />No bookmaker.<br /><span style="color:oklch(0.72 0.22 145);">Just escrow.</span>
-          </h2>
-          <p style="font-family:'Barlow',sans-serif;font-size:17px;color:oklch(0.65 0.010 145);line-height:1.7;margin-bottom:24px;">
-            SIDES is a technology platform, not a gambling operator. We hold your stakes — like PayPal holds a payment — and release them automatically when a public sports result is confirmed. We don't set odds. We don't take a position. We don't profit if you lose.
-          </p>
-          <p style="font-family:'Barlow',sans-serif;font-size:17px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            Think of it as Venmo for friend challenges: two people, equal stakes, automatic settlement. The result comes from a neutral third-party sports API — not us.
-          </p>
-        </div>
-
-        <!-- Right: Trust pillars -->
-        <div style="display:flex;flex-direction:column;gap:16px;">
-
-          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.72 0.22 145 / 0.15);border:1px solid oklch(0.72 0.22 145 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">🔒</div>
-            <div>
-              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Funds locked at accept</div>
-              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">Both parties lock stakes before the match starts. Nobody can back out once the game is live.</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.64 0.22 32 / 0.15);border:1px solid oklch(0.64 0.22 32 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">⚡</div>
-            <div>
-              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Instant auto-payout</div>
-              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">Results are pulled from live football-data.org and balldontlie.io APIs. No manual review. No delays. No disputes.</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.72 0.22 145 / 0.15);border:1px solid oklch(0.72 0.22 145 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">⭐</div>
-            <div>
-              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Telegram Stars only</div>
-              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">No credit cards. No crypto wallets. No KYC friction. SIDES uses Telegram's native payment layer — already on your phone.</div>
-            </div>
-          </div>
-
-          <div style="display:flex;gap:16px;align-items:flex-start;padding:20px;background:oklch(0.13 0.009 145);border-radius:12px;border:1px solid oklch(0.20 0.010 145);">
-            <div style="width:44px;height:44px;border-radius:10px;background:oklch(0.64 0.22 32 / 0.15);border:1px solid oklch(0.64 0.22 32 / 0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;">👥</div>
-            <div>
-              <div style="font-family:'Archivo Black',sans-serif;font-size:15px;color:oklch(0.96 0.005 145);margin-bottom:4px;">Two modes: private or open market</div>
-              <div style="font-family:'Barlow',sans-serif;font-size:14px;color:oklch(0.55 0.010 145);line-height:1.5;">Challenge a specific friend with a private link, or post to The Market — an open list where anyone in the community can accept.</div>
-            </div>
-          </div>
-
-        </div>
+    <div class="sport-card">
+      <div class="sport-emoji">🏆</div>
+      <div>
+        <div class="sport-name">More coming</div>
+        <div class="sport-leagues">Tennis · Ice Hockey · MMA · Cricket · F1 — vote for your league below</div>
+        <span class="sport-badge soon">SOON</span>
       </div>
     </div>
-  </section>
+  </div>
 
-
-  <!-- =====================================================================
-       FAQ
-       ===================================================================== -->
-  <section id="faq" style="background-color:oklch(0.11 0.007 145);padding:6rem 0;border-top:1px solid oklch(0.17 0.010 145);">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="text-center mb-12">
-        <p style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:oklch(0.64 0.22 32);margin-bottom:12px;">FAQ</p>
-        <h2 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.75rem,4vw,3rem);color:oklch(0.96 0.005 145);line-height:1.1;">
-          Real questions. Straight answers.
-        </h2>
+  <!-- Upcoming events -->
+  <div style="margin-top: 40px;">
+    <p style="font-size:0.82rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; font-weight:700;">🔥 Hot upcoming challenges</p>
+    <div class="events-grid">
+      <div class="event-card featured">
+        <div class="event-label">⚽ Football</div>
+        <div class="event-name">Champions League Final</div>
+        <div class="event-date">May 30, 2025 · 20:00 CET</div>
+        <a class="event-cta" href="https://t.me/sideupbot">Challenge now →</a>
       </div>
-
-      <div style="display:flex;flex-direction:column;gap:2px;">
-
-        <!-- FAQ Item 1 — KEY QUESTION -->
-        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
-          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
-            <span>Is this gambling? Am I breaking the law?</span>
-            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
-          </summary>
-          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            <strong style="color:oklch(0.72 0.22 145);">No.</strong> SIDES is an escrow technology platform — not a gambling operator. We don't set odds, take positions, or profit from your losses. Two individuals agree to a challenge, lock equal funds, and the winner is determined by a publicly verifiable sports result. SIDES is the technical intermediary, like PayPal processing a payment between friends. You are responsible for compliance with your local laws. SIDES does not operate as a gambling service in any jurisdiction.
-          </div>
-        </details>
-
-        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
-          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
-            <span>What are Telegram Stars?</span>
-            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
-          </summary>
-          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            Telegram Stars (XTR) is Telegram's native in-app currency — you can buy them with a regular credit or debit card inside the Telegram app. No crypto wallet, no sign-up beyond Telegram. Think of them like app store credits. When you win, Stars are sent directly to your Telegram account.
-          </div>
-        </details>
-
-        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
-          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
-            <span>What happens if the match is cancelled or postponed?</span>
-            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
-          </summary>
-          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            If a match is officially postponed or cancelled, both stakes are returned in full to each participant. No fee. No fuss. The escrow only releases when a confirmed final result exists.
-          </div>
-        </details>
-
-        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
-          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
-            <span>Does SIDES take a cut?</span>
-            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
-          </summary>
-          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            At launch: <strong style="color:oklch(0.72 0.22 145);">0% commission</strong>. Every challenge is completely free. Once we scale, challenges above $50 will carry a 2% platform fee — still less than anything you'd pay anywhere else. Free challenges remain free forever for small amounts.
-          </div>
-        </details>
-
-        <details style="border-bottom:1px solid oklch(0.17 0.010 145);">
-          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
-            <span>Can I challenge a stranger?</span>
-            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
-          </summary>
-          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            Yes — via The Market. Post your open challenge and anyone in the SIDES community can accept the opposite side. Great for when your friends won't pick the wrong team.
-          </div>
-        </details>
-
-        <details>
-          <summary style="font-family:'Archivo Black',sans-serif;font-size:17px;color:oklch(0.96 0.005 145);padding:20px 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
-            <span>Do I need to download anything?</span>
-            <span style="color:oklch(0.72 0.22 145);flex-shrink:0;font-size:22px;font-weight:300;">+</span>
-          </summary>
-          <div style="padding-bottom:20px;font-family:'Barlow',sans-serif;font-size:16px;color:oklch(0.65 0.010 145);line-height:1.7;">
-            No. SIDES is a Telegram bot. If you have Telegram (and you do), you're ready. Just open @sidesbot and start challenging.
-          </div>
-        </details>
-
+      <div class="event-card">
+        <div class="event-label">🏀 Basketball</div>
+        <div class="event-name">NBA Finals Game 1</div>
+        <div class="event-date">June 2025 · TBD</div>
+        <a class="event-cta" href="https://t.me/sideupbot">Challenge now →</a>
+      </div>
+      <div class="event-card">
+        <div class="event-label">🏆 Football</div>
+        <div class="event-name">FIFA World Cup 2026</div>
+        <div class="event-date">Summer 2026 · Be ready</div>
+        <span style="color:var(--text-muted); font-size:0.85rem;">Coming soon</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- =====================================================================
-       FINAL CTA — email capture + Telegram
-       ===================================================================== -->
-  <section id="cta" class="noise-overlay" style="background-color:oklch(0.09 0.006 145);padding:7rem 0;position:relative;overflow:hidden;">
-
-    <!-- Background glows -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80vw;height:80vw;max-width:700px;max-height:700px;background:radial-gradient(ellipse,oklch(0.72 0.22 145 / 0.12) 0%,transparent 65%);filter:blur(2px);"></div>
-    </div>
-
-    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-      <!-- Big statement -->
-      <div style="font-family:'Archivo Black',sans-serif;font-size:clamp(3rem,10vw,7rem);line-height:0.95;margin-bottom:24px;letter-spacing:-0.03em;">
-        <span style="color:oklch(0.96 0.005 145);">No house.</span><br />
-        <span style="color:oklch(0.72 0.22 145);">Just you</span><br />
-        <span style="color:oklch(0.96 0.005 145);">and them.</span>
+<!-- ESCROW EXPLAINER -->
+<section>
+  <div class="escrow-section">
+    <span class="section-tag">Why it works</span>
+    <h2>No house edge.<br>No bookmaker.<br>Just escrow.</h2>
+    <p style="color:var(--text-muted); max-width:580px; margin-top:12px;">SideUp is a technology platform, not a gambling operator. We hold your stakes — like PayPal holds a payment — and release them automatically when a public sports result is confirmed. We don't set odds. We don't take a position. We don't profit if you lose.</p>
+    <p style="color:var(--text-muted); max-width:580px; margin-top:12px;">Think of it as Venmo for friend challenges: two people, equal stakes, automatic settlement. The result comes from a neutral third-party sports API — not us.</p>
+    <div class="escrow-points">
+      <div class="escrow-point">
+        <div style="font-size:1.5rem; margin-bottom:8px;">🔒</div>
+        <h3>Funds locked at accept</h3>
+        <p>Both parties lock stakes before the match starts. Nobody can back out once the game is live.</p>
       </div>
-
-      <p style="font-family:'Barlow',sans-serif;font-size:18px;color:oklch(0.60 0.010 145);line-height:1.6;margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;">
-        Stop letting your friends dodge the payout. Challenge them on Telegram right now — it's free, it's instant, and the bot doesn't forget.
-      </p>
-
-      <!-- Primary CTA -->
-      <a href="https://t.me/sidesbot" class="btn-primary" style="font-size:1.1rem;padding:1rem 2.5rem;margin-bottom:16px;display:inline-flex;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.68 7.92c-.12.56-.44.7-.9.44l-2.46-1.82-1.18 1.14c-.13.13-.25.25-.5.25l.18-2.52 4.6-4.16c.2-.18-.04-.28-.3-.1L8.76 14.16 6.34 13.4c-.54-.17-.56-.54.12-.8l8.92-3.44c.44-.16.82.1.26.64z"/></svg>
-        Open @sidesbot on Telegram
-      </a>
-      <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.45 0.008 145);margin-bottom:40px;">Free to start. No download. No credit card.</p>
-
-      <!-- Email capture for waitlist -->
-      <div style="background:oklch(0.13 0.009 145);border:1px solid oklch(0.20 0.010 145);border-radius:14px;padding:28px;max-width:480px;margin:0 auto;">
-        <p style="font-family:'Archivo Black',sans-serif;font-size:16px;color:oklch(0.96 0.005 145);margin-bottom:6px;">Get the launch alert</p>
-        <p style="font-family:'Barlow',sans-serif;font-size:13px;color:oklch(0.55 0.010 145);margin-bottom:16px;">We'll tell you when your favourite league goes live.</p>
-        <form
-          style="display:flex;flex-direction:column;gap:10px;"
-          onsubmit="this.querySelector('button').textContent='✓ You\'re on the list!';this.querySelector('button').style.background='oklch(0.60 0.20 145)';return false;"
-        >
-          <input
-            type="email"
-            placeholder="your@email.com"
-            required
-            style="
-              background:oklch(0.09 0.006 145);
-              border:1.5px solid oklch(0.20 0.010 145);
-              border-radius:8px;
-              padding:12px 16px;
-              font-family:'Barlow',sans-serif;
-              font-size:15px;
-              color:oklch(0.96 0.005 145);
-              outline:none;
-              width:100%;
-              transition:border-color 0.15s;
-            "
-            onfocus="this.style.borderColor='oklch(0.72 0.22 145 / 0.6)'"
-            onblur="this.style.borderColor='oklch(0.20 0.010 145)'"
-          />
-          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:12px 24px;">
-            Notify me
-          </button>
-        </form>
+      <div class="escrow-point">
+        <div style="font-size:1.5rem; margin-bottom:8px;">⚡</div>
+        <h3>Instant auto-payout</h3>
+        <p>Results are pulled from live football-data.org and balldontlie.io APIs. No manual review. No delays. No disputes.</p>
       </div>
-
+      <div class="escrow-point">
+        <div style="font-size:1.5rem; margin-bottom:8px;">⭐</div>
+        <h3>Telegram Stars only</h3>
+        <p>No credit cards. No crypto wallets. No KYC friction. SideUp uses Telegram's native payment layer — already on your phone.</p>
+      </div>
+      <div class="escrow-point">
+        <div style="font-size:1.5rem; margin-bottom:8px;">👥</div>
+        <h3>Two modes: private or open</h3>
+        <p>Challenge a specific friend with a private link, or post to The Market — an open list where anyone can accept.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
+<!-- FAQ -->
+<section>
+  <span class="section-tag">FAQ</span>
+  <h2>Real questions.<br>Straight answers.</h2>
+  <p class="section-sub">The stuff you're actually wondering about.</p>
+  <div class="faq-list">
+    <details>
+      <summary>Is this gambling? Am I breaking the law?</summary>
+      <div class="faq-body"><strong>No.</strong> SideUp is an escrow technology platform — not a gambling operator. We don't set odds, take positions, or profit from your losses. Two individuals agree to a challenge, lock equal funds, and the winner is determined by a publicly verifiable sports result. SideUp is the technical intermediary, like PayPal processing a payment between friends. You are responsible for compliance with your local laws. SideUp does not operate as a gambling service in any jurisdiction.</div>
+    </details>
+    <details>
+      <summary>What are Telegram Stars?</summary>
+      <div class="faq-body">Telegram Stars (XTR) is Telegram's native in-app currency — you can buy them with a regular credit or debit card inside the Telegram app. No crypto wallet, no sign-up beyond Telegram. Think of them like app store credits. When you win, Stars are sent directly to your Telegram account.</div>
+    </details>
+    <details>
+      <summary>What happens if the match is cancelled or postponed?</summary>
+      <div class="faq-body">If a match is officially postponed or cancelled, both stakes are returned in full to each participant. No fee. No fuss. The escrow only releases when a confirmed final result exists.</div>
+    </details>
+    <details>
+      <summary>Does SideUp take a cut?</summary>
+      <div class="faq-body">At launch: <strong>0% commission</strong>. Every challenge is completely free. Once we scale, challenges above a threshold will carry a small 2% platform fee — still less than anything you'd pay anywhere else. Free challenges remain free forever for small amounts.</div>
+    </details>
+    <details>
+      <summary>Can I challenge a stranger?</summary>
+      <div class="faq-body">Yes — via The Market. Post your open challenge and anyone in the SideUp community can accept the opposite side. Great for when your friends won't pick the wrong team.</div>
+    </details>
+    <details>
+      <summary>Do I need to download anything?</summary>
+      <div class="faq-body">No. SideUp is a Telegram bot. If you have Telegram (and you do), you're ready. Just open @sideupbot and start challenging.</div>
+    </details>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <h2>No house.<br>Just you<br>and them.</h2>
+  <p>Stop letting your friends dodge the payout. Challenge them on Telegram right now — it's free, it's instant, and the bot doesn't forget.</p>
+  <a class="btn-primary" href="https://t.me/sideupbot" style="display:inline-flex; font-size:1.1rem; padding:18px 40px;">
+    ⚡ Open @sideupbot on Telegram
+  </a>
+  <p class="cta-sub">Free to start. No download. No credit card.</p>
+</div>
+
+<!-- EMAIL CAPTURE -->
+<div class="email-section">
+  <h3>Get the launch alert</h3>
+  <p>We'll tell you when your favourite league goes live.</p>
+  <div class="email-form">
+    <input class="email-input" type="email" placeholder="your@email.com" />
+    <button class="email-btn">Notify me</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
 </Base>
