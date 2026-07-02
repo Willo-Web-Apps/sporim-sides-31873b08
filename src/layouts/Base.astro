@@ -42,6 +42,436 @@ const orgSchema = JSON.stringify({
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
     <script type="application/ld+json" set:html={orgSchema}></script>
+      <!-- WILLO-BRIDGE:BEGIN v=5 (auto-managed by Willo — do not edit by hand; refreshed on each deploy) -->
+    <!-- Willo visual-edit bridge (PLAN-website-preview.md Phase 2a) -- dormant until an allowlisted Willo dashboard enables it; inert for normal visitors. -->
+    <script is:inline>
+(function () {
+  "use strict";
+  var ALLOWED = ["https://www.willo.ai", "https://willo.ai"];
+  var PROTO = 1;
+  var editing = false;
+  var trustedOrigin = null;
+  var outlined = null;
+  var selected = null;
+  // Inline text editing (v4). inlineEl is the element currently contentEditable;
+  // inlineOrig is its textContent captured at edit-start (for restore-on-cancel).
+  var inlineEl = null;
+  var inlineOrig = null;
+  var inlineRaf = 0;
+
+  function cssEscape(s) {
+    if (window.CSS && CSS.escape) return CSS.escape(s);
+    return String(s).replace(/[^a-zA-Z0-9_-]/g, "_");
+  }
+  function selectorFor(el) {
+    if (!el || el.nodeType !== 1) return "";
+    var parts = [];
+    var node = el;
+    while (node && node.nodeType === 1 && node.tagName.toLowerCase() !== "html") {
+      if (node.id) { parts.unshift("#" + cssEscape(node.id)); break; }
+      var tag = node.tagName.toLowerCase();
+      var idx = 1, sib = node;
+      while ((sib = sib.previousElementSibling)) {
+        if (sib.tagName === node.tagName) idx++;
+      }
+      parts.unshift(tag + ":nth-of-type(" + idx + ")");
+      node = node.parentElement;
+      if (parts.length > 8) break;
+    }
+    return parts.join(" > ");
+  }
+  function nearbyHeadings(el) {
+    var out = [];
+    var sec = el.closest ? el.closest("section, header, footer, main, article") : null;
+    if (sec) {
+      var h = sec.querySelector("h1,h2,h3,h4,h5,h6");
+      if (h && h.innerText) out.push(h.innerText.trim().slice(0, 80));
+    }
+    if (document.title) out.push(String(document.title).slice(0, 80));
+    return out;
+  }
+  function describe(el) {
+    var tag = el.tagName ? el.tagName.toLowerCase() : "element";
+    var raw = (el.innerText || (el.getAttribute && el.getAttribute("alt")) || "");
+    var text = String(raw).trim().replace(/\s+/g, " ").slice(0, 200);
+    var label = tag + (text ? ' "' + text.slice(0, 40) + '"' : "");
+    return {
+      context: {
+        page: location.pathname || "/",
+        selector: selectorFor(el),
+        text: text,
+        tag: tag,
+        headings: nearbyHeadings(el)
+      },
+      label: label
+    };
+  }
+
+  // v4: an element qualifies for direct inline text editing iff it is a text
+  // leaf — non-empty trimmed text, no element children except <br>, textContent
+  // no longer than 5000 chars, and not inside script/style/svg. Decided
+  // structurally (not by a tag allowlist) so h1-h6/p/span/a/button/li/label/td/…
+  // all qualify while wrappers with child elements do not.
+  function isTextLeaf(el) {
+    if (!el || el.nodeType !== 1) return false;
+    if (el.closest && el.closest("script, style, svg")) return false;
+    var tc = el.textContent || "";
+    if (tc.length > 5000) return false;
+    if (!tc.replace(/\s+/g, " ").trim()) return false;
+    var kids = el.children;
+    for (var i = 0; i < kids.length; i++) {
+      var kt = kids[i].tagName ? kids[i].tagName.toLowerCase() : "";
+      if (kt !== "br") return false;
+    }
+    return true;
+  }
+  // Raw textContent (NOT whitespace-collapsed), capped at 5000 chars. The cap
+  // matches the editable threshold; the raw form is what the editor and the
+  // server-side source match need.
+  function fullTextOf(el) {
+    return String((el && el.textContent) || "").slice(0, 5000);
+  }
+
+  function clearOutline() {
+    if (outlined) {
+      outlined.style.outline = outlined.getAttribute("data-willo-o") || "";
+      outlined.removeAttribute("data-willo-o");
+      outlined = null;
+    }
+  }
+  function setOutline(el) {
+    if (el === outlined || !el || !el.style) return;
+    clearOutline();
+    el.setAttribute("data-willo-o", el.style.outline || "");
+    el.style.outline = "2px solid #6366f1";
+    el.style.outlineOffset = "1px";
+    outlined = el;
+  }
+
+  // The SELECTED element keeps a persistent highlight that lives inside the
+  // iframe (on the element itself), so it scrolls naturally with the page and
+  // always marks exactly what the user picked. Distinct from the transient
+  // hover outline above. Cleared via a willo:clear-selection message.
+  function clearSelected() {
+    if (selected) {
+      selected.style.outline = selected.getAttribute("data-willo-so") || "";
+      selected.style.outlineOffset = selected.getAttribute("data-willo-soo") || "";
+      selected.style.boxShadow = selected.getAttribute("data-willo-sbs") || "";
+      selected.removeAttribute("data-willo-so");
+      selected.removeAttribute("data-willo-soo");
+      selected.removeAttribute("data-willo-sbs");
+      selected = null;
+    }
+  }
+  function applySelected(el) {
+    if (!el || !el.style) return;
+    clearSelected();
+    el.setAttribute("data-willo-so", el.style.outline || "");
+    el.setAttribute("data-willo-soo", el.style.outlineOffset || "");
+    el.setAttribute("data-willo-sbs", el.style.boxShadow || "");
+    el.style.outline = "2px solid #6366f1";
+    el.style.outlineOffset = "2px";
+    el.style.boxShadow = "0 0 0 4px rgba(99,102,241,0.18)";
+    selected = el;
+  }
+
+  function inInlineEdit(node) {
+    return !!(inlineEl && node && (node === inlineEl || (inlineEl.contains && inlineEl.contains(node))));
+  }
+  function onMove(e) {
+    if (!editing) return;
+    // Don't draw the hover/crosshair outline over the element being edited —
+    // the user is working inside it, not picking a new target.
+    if (inInlineEdit(e.target)) return;
+    setOutline(e.target);
+  }
+  function rectOf(el) {
+    var r = el.getBoundingClientRect ? el.getBoundingClientRect() : null;
+    if (!r) return null;
+    return {
+      top: Math.round(r.top), left: Math.round(r.left),
+      bottom: Math.round(r.bottom), right: Math.round(r.right),
+      width: Math.round(r.width), height: Math.round(r.height)
+    };
+  }
+  function onClick(e) {
+    if (!editing) return;
+    // While inline-editing, a click inside the edited element must place the
+    // caret / select text — never re-trigger selection. We still preventDefault
+    // (so an editable <a> can't navigate away) but skip re-selecting/posting.
+    if (inInlineEdit(e.target)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    var d = describe(e.target);
+    clearOutline();
+    applySelected(e.target);
+    if (trustedOrigin) {
+      // selfHighlight tells the dashboard this (newer) bridge drew the
+      // selection outline INSIDE the iframe (so it tracks scroll) and supports
+      // scroll-to-selected. Older bridges omit it, so the dashboard falls back
+      // to its own overlay and hides the scroll-to-element control.
+      // editable/fullText (v4) are additive: a v3 dashboard ignores them; a v4
+      // dashboard uses them to offer inline editing. fullText is present iff
+      // editable so the dashboard can key off `editable && fullText != null`.
+      var msg = { type: "willo:element-selected", v: PROTO, context: d.context, label: d.label, rect: rectOf(e.target), selfHighlight: true };
+      var canEdit = isTextLeaf(e.target);
+      msg.editable = canEdit;
+      if (canEdit) msg.fullText = fullTextOf(e.target);
+      try { window.parent.postMessage(msg, trustedOrigin); } catch (err) {}
+    }
+    return false;
+  }
+
+  function enable(origin) {
+    trustedOrigin = origin;
+    if (editing) return;
+    editing = true;
+    document.addEventListener("mousemove", onMove, true);
+    document.addEventListener("click", onClick, true);
+    if (document.body) document.body.style.cursor = "crosshair";
+  }
+  function disable() {
+    editing = false;
+    // Leave the DOM sane if edit mode is torn down mid-edit: restore original.
+    cancelInlineEdit();
+    clearOutline();
+    document.removeEventListener("mousemove", onMove, true);
+    document.removeEventListener("click", onClick, true);
+    if (document.body) document.body.style.cursor = "";
+  }
+
+  // --- Inline text editing (v4) --------------------------------------------
+  // Turn the SELECTED element into an in-place plaintext editor. We only ever
+  // read/write textContent, so nothing typed or pasted can inject DOM.
+  function postInlineInput() {
+    if (!inlineEl || !trustedOrigin) return;
+    var t = fullTextOf(inlineEl);
+    try { window.parent.postMessage({ type: "willo:inline-edit-input", v: PROTO, text: t }, trustedOrigin); } catch (err) {}
+  }
+  function onInlineInput() {
+    // Coalesce input bursts into one post per frame. The parent is local so
+    // this is polish, not a requirement.
+    if (inlineRaf) return;
+    if (window.requestAnimationFrame) {
+      inlineRaf = window.requestAnimationFrame(function () { inlineRaf = 0; postInlineInput(); });
+    } else {
+      postInlineInput();
+    }
+  }
+  function teardownInline() {
+    // Drop contentEditable + listeners; leaves the current DOM text in place.
+    if (!inlineEl) return;
+    var el = inlineEl;
+    try { el.removeEventListener("input", onInlineInput, false); } catch (err) {}
+    try { el.contentEditable = "false"; } catch (err) {}
+    try { el.removeAttribute("data-willo-editing"); } catch (err) {}
+    if (inlineRaf && window.cancelAnimationFrame) { try { window.cancelAnimationFrame(inlineRaf); } catch (err) {} }
+    inlineRaf = 0;
+    try { if (el.blur) el.blur(); } catch (err) {}
+  }
+  function startInlineEdit() {
+    if (inlineEl) return;
+    var el = selected;
+    if (!el || el.nodeType !== 1) return;
+    inlineEl = el;
+    inlineOrig = String(el.textContent || "");
+    // plaintext-only where supported (blocks pasted rich markup); some engines
+    // reject the value with a SyntaxError, so fall back to plain "true". We read
+    // textContent regardless, so "true" is equally safe against injection.
+    try { el.contentEditable = "plaintext-only"; } catch (err) {}
+    if (!el.isContentEditable) { try { el.contentEditable = "true"; } catch (err) {} }
+    el.setAttribute("data-willo-editing", "1");
+    el.addEventListener("input", onInlineInput, false);
+    try { el.focus(); } catch (err) {}
+    // Caret at end so the user appends rather than landing at position 0.
+    try {
+      if (window.getSelection && document.createRange) {
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        range.collapse(false);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    } catch (err) {}
+    postInlineInput();  // emit the starting value immediately
+  }
+  function cancelInlineEdit() {
+    if (!inlineEl) return;
+    var el = inlineEl;
+    var orig = inlineOrig;
+    teardownInline();
+    // Restore via textContent (never innerHTML) so restore can't inject DOM.
+    if (orig != null) { try { el.textContent = orig; } catch (err) {} }
+    inlineEl = null;
+    inlineOrig = null;
+  }
+  function finishInlineEdit() {
+    if (!inlineEl) return;
+    // Keep the edited text as the optimistic preview; just stop editing.
+    teardownInline();
+    inlineEl = null;
+    inlineOrig = null;
+  }
+
+  // --- Live navigation (Phase B) -------------------------------------------
+  // We can't read the browser's forward-history availability directly, so we
+  // track a session-local index. It resets to 0 on each full page load (fresh
+  // document), so canGoBack also considers history.length (there may be prior
+  // entries from before this document). pushState is patched to stamp the index
+  // into the history state; popstate reads it back to recover position. Best
+  // effort by design — a preview toolbar, not a router.
+  var idx = 0;
+  var maxIdx = 0;
+  function stamp(state) {
+    var s = (state && typeof state === "object") ? state : {};
+    try { s.__willoIdx = idx; } catch (err) {}
+    return s;
+  }
+  try {
+    var _push = history.pushState;
+    history.pushState = function (state) {
+      idx += 1; maxIdx = idx;
+      var args = Array.prototype.slice.call(arguments);
+      args[0] = stamp(state);
+      var r = _push.apply(this, args);
+      reportNav();
+      return r;
+    };
+    var _replace = history.replaceState;
+    history.replaceState = function (state) {
+      var args = Array.prototype.slice.call(arguments);
+      args[0] = stamp(state);
+      var r = _replace.apply(this, args);
+      reportNav();
+      return r;
+    };
+  } catch (err) {}
+  window.addEventListener("popstate", function (e) {
+    var st = e && e.state;
+    if (st && typeof st.__willoIdx === "number") idx = st.__willoIdx;
+    else idx = Math.max(0, idx - 1);
+    reportNav();
+  });
+  function navState() {
+    return {
+      url: location.href,
+      path: location.pathname + location.search + location.hash,
+      canGoBack: idx > 0 || history.length > 1,
+      canGoForward: idx < maxIdx
+    };
+  }
+  function reportNav() {
+    var s = navState();
+    for (var i = 0; i < ALLOWED.length; i++) {
+      try {
+        window.parent.postMessage(
+          { type: "willo:navigated", v: PROTO, url: s.url, path: s.path, canGoBack: s.canGoBack, canGoForward: s.canGoForward },
+          ALLOWED[i]
+        );
+      } catch (err) {}
+    }
+  }
+  function reportUnload() {
+    for (var i = 0; i < ALLOWED.length; i++) {
+      try { window.parent.postMessage({ type: "willo:unload", v: PROTO }, ALLOWED[i]); } catch (err) {}
+    }
+  }
+  window.addEventListener("pagehide", reportUnload);
+
+  // --- Live token preview (Phase A follow-up A-ii) -------------------------
+  // The dashboard Brand drawer previews a rebrand in THIS live page by setting
+  // the semantic CSS vars on :root — no rebuild, no deploy. We only touch
+  // custom properties whose name and value pass strict patterns, so a
+  // malicious/buggy value can never break out of the declaration and inject a
+  // rule via var() substitution (CSS-var injection defence-in-depth, even
+  // though the sender origin is already allowlisted).
+  var previewedVars = [];
+  var previewDarkPrev = null;
+  var TOKEN_NAME_RE = /^--[a-z0-9-]{1,40}$/;
+  // \x25 is the percent sign, written as a hex escape so the bridge body stays
+  // free of a literal percent char (it's concatenated into a formatted
+  // template). Allows the percentage forms in oklch()/hsl()/rgb() colours.
+  var TOKEN_VAL_RE = /^[a-zA-Z0-9 ()\x25.,\/#_-]{1,120}$/;
+  function applyPreviewTokens(tokens, dark) {
+    if (!tokens || typeof tokens !== "object") return;
+    var root = document.documentElement;
+    for (var k in tokens) {
+      if (!Object.prototype.hasOwnProperty.call(tokens, k)) continue;
+      if (!TOKEN_NAME_RE.test(k)) continue;
+      var val = String(tokens[k]);
+      if (!TOKEN_VAL_RE.test(val)) continue;
+      // Reject resource-fetching / legacy-exec CSS functions even though the
+      // sender origin is allowlisted (defence-in-depth: a token is a colour /
+      // length / font-stack, never a url()). Mirrors the backend colour guard.
+      var low = val.toLowerCase();
+      if (low.indexOf("url(") !== -1 || low.indexOf("expression(") !== -1 || low.indexOf("image-set(") !== -1) continue;
+      root.style.setProperty(k, val);
+      if (previewedVars.indexOf(k) === -1) previewedVars.push(k);
+    }
+    if (typeof dark === "boolean") {
+      if (previewDarkPrev === null) previewDarkPrev = root.classList.contains("dark");
+      if (dark) root.classList.add("dark"); else root.classList.remove("dark");
+    }
+  }
+  function resetPreviewTokens() {
+    var root = document.documentElement;
+    for (var i = 0; i < previewedVars.length; i++) root.style.removeProperty(previewedVars[i]);
+    previewedVars = [];
+    if (previewDarkPrev !== null) {
+      if (previewDarkPrev) root.classList.add("dark"); else root.classList.remove("dark");
+      previewDarkPrev = null;
+    }
+  }
+
+  window.addEventListener("message", function (e) {
+    if (ALLOWED.indexOf(e.origin) === -1) return;
+    var d = e.data;
+    if (!d || typeof d !== "object" || d.v !== PROTO) return;
+    if (d.type === "willo:enable-edit") enable(e.origin);
+    else if (d.type === "willo:disable-edit") disable();
+    else if (d.type === "willo:clear-selection") { cancelInlineEdit(); clearSelected(); }
+    else if (d.type === "willo:start-inline-edit") startInlineEdit();
+    else if (d.type === "willo:cancel-inline-edit") cancelInlineEdit();
+    else if (d.type === "willo:finish-inline-edit") finishInlineEdit();
+    else if (d.type === "willo:preview-tokens") applyPreviewTokens(d.tokens, d.dark);
+    else if (d.type === "willo:reset-tokens") resetPreviewTokens();
+    else if (d.type === "willo:scroll-to-selected") {
+      if (selected && selected.scrollIntoView) {
+        try { selected.scrollIntoView({ behavior: "smooth", block: "center" }); } catch (err) { selected.scrollIntoView(); }
+      }
+    }
+    else if (d.type === "willo:back") { try { history.back(); } catch (err) {} }
+    else if (d.type === "willo:forward") { try { history.forward(); } catch (err) {} }
+    else if (d.type === "willo:reload") { try { location.reload(); } catch (err) {} }
+    else if (d.type === "willo:navigate") {
+      // Same-origin only — the bridge must never be a redirector to arbitrary
+      // sites even for an allowlisted parent.
+      try {
+        var u = new URL(String(d.path || "/"), location.href);
+        if (u.origin === location.origin) location.assign(u.href);
+      } catch (err) {}
+    }
+  });
+
+  function announceReady() {
+    for (var i = 0; i < ALLOWED.length; i++) {
+      try { window.parent.postMessage({ type: "willo:ready", v: PROTO, nav: true, inlineEdit: true }, ALLOWED[i]); } catch (err) {}
+    }
+    reportNav();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", announceReady);
+  } else {
+    announceReady();
+  }
+})();
+    </script>
+    <!-- WILLO-BRIDGE:END -->
   </head>
   <body style="margin:0;padding:0;background:oklch(0.09 0.006 145);color:oklch(0.96 0.005 145);min-height:100vh;display:flex;flex-direction:column;font-family:'Barlow',ui-sans-serif,sans-serif;-webkit-font-smoothing:antialiased;">
     <Header />
