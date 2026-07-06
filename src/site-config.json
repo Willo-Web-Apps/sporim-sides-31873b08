@@ -1,0 +1,90 @@
+{
+  "$description": "Design tokens for this site. Single source of truth: src/site-config.ts. Regenerate src/styles/global.css after any change.",
+  "identity": {
+    "name": "SideUp",
+    "tagline": "",
+    "description": "",
+    "voice": "",
+    "logo": {
+      "light": "",
+      "dark": "",
+      "favicon": ""
+    }
+  },
+  "palette": {
+    "brand": {
+      "50": "oklch(0.97 0.04 145)",
+      "100": "oklch(0.92 0.08 145)",
+      "200": "oklch(0.84 0.13 145)",
+      "300": "oklch(0.795 0.165 145.000)",
+      "400": "oklch(0.75 0.20 145)",
+      "500": "oklch(0.72 0.22 145)",
+      "600": "oklch(0.60 0.20 145)",
+      "700": "oklch(0.488 0.160 145.000)",
+      "800": "oklch(0.420 0.135 145.000)",
+      "900": "oklch(0.360 0.104 145.000)",
+      "950": "oklch(0.257 0.070 145.000)"
+    },
+    "surface": {
+      "50": "oklch(0.09 0.006 145)",
+      "100": "oklch(0.11 0.007 145)",
+      "200": "oklch(0.14 0.009 145)",
+      "300": "oklch(0.18 0.010 145)",
+      "400": "oklch(0.254 0.010 145.000)",
+      "500": "oklch(0.328 0.010 145.000)",
+      "600": "oklch(0.402 0.010 145.000)",
+      "700": "oklch(0.476 0.010 145.000)",
+      "800": "oklch(0.55 0.010 145)",
+      "900": "oklch(0.75 0.008 145)",
+      "950": "oklch(0.96 0.005 145)"
+    },
+    "accent": {
+      "50": "oklch(0.987 0.022 32.000)",
+      "100": "oklch(0.962 0.048 32.000)",
+      "200": "oklch(0.924 0.096 32.000)",
+      "300": "oklch(0.879 0.140 32.000)",
+      "400": "oklch(0.70 0.20 32)",
+      "500": "oklch(0.64 0.22 32)",
+      "600": "oklch(0.55 0.20 32)",
+      "700": "oklch(0.555 0.140 32.000)",
+      "800": "oklch(0.473 0.118 32.000)",
+      "900": "oklch(0.414 0.098 32.000)",
+      "950": "oklch(0.279 0.066 32.000)"
+    }
+  },
+  "type": {
+    "display": {
+      "family": "Archivo Black",
+      "fallback": "ui-sans-serif, sans-serif",
+      "google": "Archivo Black",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    "body": {
+      "family": "Barlow",
+      "fallback": "ui-sans-serif, sans-serif",
+      "google": "Barlow",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    "mono": {
+      "family": "",
+      "fallback": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+      "google": null,
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    }
+  },
+  "radius": "0.625rem"
+}
