@@ -23,6 +23,8 @@ const orgSchema = JSON.stringify({
   "description": "Peer-to-peer sports challenge platform inside Telegram. Lock stakes in escrow via Telegram Stars, winner paid automatically.",
   "url": siteUrl,
 }).replace(/</g, '\\u003c');
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID ?? "";
+const umamiBaseUrl = (import.meta.env.PUBLIC_UMAMI_BASE_URL ?? "").replace(/\/$/, "");
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
@@ -472,6 +474,10 @@ const orgSchema = JSON.stringify({
 })();
     </script>
     <!-- WILLO-BRIDGE:END -->
+      <!-- Analytics (Umami — env-driven, renders nothing if unset) -->
+    {umamiWebsiteId && umamiBaseUrl && (
+      <script async src={`${umamiBaseUrl}/script.js`} data-website-id={umamiWebsiteId}></script>
+    )}
   </head>
   <body style="margin:0;padding:0;background:var(--color-surface-50);color:var(--color-surface-950);min-height:100vh;display:flex;flex-direction:column;font-family:'Barlow',ui-sans-serif,sans-serif;-webkit-font-smoothing:antialiased;">
     <Header />
