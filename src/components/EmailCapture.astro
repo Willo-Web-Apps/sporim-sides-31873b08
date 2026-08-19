@@ -24,7 +24,7 @@ const subscribeToken = import.meta.env.PUBLIC_SUBSCRIBE_TOKEN || '';
   <p id="email-capture-msg" class="mt-3 text-sm hidden"></p>
 </div>
 
-<script define:vars={{ apiBase, subscribeToken }}>
+<script define:vars={{ apiBase, subscribeToken, source }}>
   const form = document.getElementById('email-capture-form');
   const msg = document.getElementById('email-capture-msg');
   if (form) {
